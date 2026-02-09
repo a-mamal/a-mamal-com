@@ -15,6 +15,7 @@
 - [Contributing](#contributing)
 - [Deployment](#deployment)
 - [Tooling & Acknowledgments](#tooling--acknowledgments)
+- [About This Project](#about-this-project)
 - [License](#license)
 - [Notes](#notes)
 
@@ -245,9 +246,18 @@ When your feature or fix is ready:
 - Automation: Deployment handled via FTP Deploy Action
 - Database: Credentials managed via .env and .env.production
 
+
 ## Tooling & Acknowledgments
 - Deployment automated via GitHub Actions using
   [SamKirkland/FTP-Deploy-Action](https://github.com/SamKirkland/FTP-Deploy-Action)
+
+
+## About This Project
+
+> ⚠️ Note: This is a personal project managed by a single developer.  
+> I’m learning, building features, and updating documentation all at the same time.  
+> Progress may be gradual, but I appreciate any feedback, suggestions, or contributions!  
+> Thank you for your patience and support 🙏.
 
 
 ## License
