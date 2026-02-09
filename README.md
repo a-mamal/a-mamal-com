@@ -88,6 +88,27 @@ It is still in-progress and will be updated.
 | `spoken_languages`            | Languages spoken, including proficiency level |                          |
 | `certificate_spoken_language` | Links certificates to spoken languages        | Pivot table for many-to-many relation |
 
+### Table: `users`
+
+| Column              | Type         | Nullable | Notes                                   |
+|--------------------|---------------|----------|-----------------------------------------|
+| `id`               | bigint        | No       | Primary Key, auto-increment             |
+| `name`             | varchar(255)  | No       | User’s full name                        |
+| `email`            | varchar(255)  | No       | Unique, used for authentication         |
+| `email_verified_at`| timestamp     | Yes      | When email was verified                 |
+| `password`         | varchar(255)  | No       | Hashed password                         |
+| `remember_token`   | varchar(100)  | Yes      | Used for “remember me” functionality    |
+| `created_at`       | timestamp     | Yes      | Laravel timestamp                       |
+| `updated_at`       | timestamp     | Yes      | Laravel timestamp                       |
+
+**Relationships:**  
+- Users can have many profiles
+
+**Seeder / Factory:**  
+- `UserFactory` exists for generating test users.
+- `UserSeeder` doesn't exist yet.
+
+
 
 > **Note:**  
 > The database schema supports multiple profiles per user.  
