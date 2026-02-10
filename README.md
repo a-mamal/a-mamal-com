@@ -127,7 +127,10 @@ It is still in-progress and will be updated.
   - certificates  
   - degrees  
   - spoken languages  
-  - profile links  
+  - profile links
+  - projects
+    
+> Note: The projects relationship exists in the Project model.
 
 **Seeder / Factory:**  
 - `ProfileFactory` exists  
