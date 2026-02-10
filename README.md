@@ -187,8 +187,8 @@ It is still in-progress and will be updated.
 - A certificate optionally belongs to one spoken language (links the certificate to a profile's spoken language)
 
 **Seeder / Factory:**  
-- `CertificateFactory` exists but needs to be updated (see Issue #55)
-- `CertificateSeeder` exists but needs to be updated (see Issue #56)
+- `CertificateFactory` exists but needs to be updated (see [Issue #55](https://github.com/a-mamal/personal-website/issues/55))
+- `CertificateSeeder` exists but needs to be updated (see [Issue #56](https://github.com/a-mamal/personal-website/issues/56))
 
 
 
