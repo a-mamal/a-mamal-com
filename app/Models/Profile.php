@@ -19,6 +19,7 @@ class Profile extends Model
 
     public function user() { return $this->belongsTo(User::class); }
     public function links(){ return $this->hasMany(ProfileLink::class);}
+    public function projects(){return $this->hasMany(Project::class);}
     public function degrees() { return $this->hasMany(Degree::class); }
     public function certificates() { return $this->hasMany(Certificate::class); }
     public function spokenLanguages() { return $this->hasMany(SpokenLanguage::class); }

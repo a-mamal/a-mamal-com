@@ -11,6 +11,7 @@ class Project extends Model
     use HasFactory;
 
     protected $fillable = [
+        'profile_id',
         'title',
         'type',
         'slug',
