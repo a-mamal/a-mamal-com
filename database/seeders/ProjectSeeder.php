@@ -5,7 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;    
+use Illuminate\Support\Str;   
+use App\Models\Profile; 
 
 class ProjectSeeder extends Seeder
 {
@@ -13,13 +14,23 @@ class ProjectSeeder extends Seeder
      * Run the database seeds.
      */
     public function run(): void
-    {
+    {   
+        $profile = Profile::first();
+        if (!$profile) {
+            $profile = Profile::create([
+                'user_id' => 1, // Make sure a user with ID 1 exists, or adjust accordingly
+                'display_name' => 'Default Profile',
+                'bio' => 'Automatically generated profile for seeding projects.',
+            ]);
+        }
+
         $slug = Str::slug('Online Advertisement Service for Used Smartphones');
 
         DB::table('projects')->updateOrInsert(
             ['slug' => $slug ],
             [
                 'slug' => $slug ,
+                'profile_id' => $profile->id,
                 'title' => 'Online Advertisement Service for Used Smartphones',
                 'type' => 'Thesis Project',
                 'description' => 'Full-stack marketplace web application for listing and managing used smartphones, developed as a thesis project.',
@@ -45,6 +56,7 @@ class ProjectSeeder extends Seeder
             ['slug' => $slug],
             [
                 'slug' => $slug,
+                'profile_id' => $profile->id,
                 'title' => 'Personal Portfolio Website',
                 'type' => 'Self-Initiated Project',
                 'description' => 'A clean, responsive personal portfolio website built with HTML, CSS, and JavaScript, serving as the foundation for the current Laravel personal website.',
@@ -69,6 +81,7 @@ class ProjectSeeder extends Seeder
             ['slug' => $slug],
             [
                 'slug' => $slug,
+                'profile_id' => $profile->id,
                 'title' => 'Creative Experiments (Coming Soon)',
                 'type' => 'Self-Initiated Project',
                 'description' => 'A showcase of SVGs, pixel art, and other creative experiments. Interactive demos coming soon!',
@@ -93,6 +106,7 @@ class ProjectSeeder extends Seeder
             ['slug' => $slug],
             [
                 'slug' => $slug,
+                'profile_id' => $profile->id,
                 'title' => 'Car Service Website (In Progress)',
                 'type' => 'Independent Project',
                 'description' => 'A fully responsive static website for a local car-service business, presenting services, contact information, and business details. Dynamic features may be added in the future.',
@@ -117,6 +131,7 @@ class ProjectSeeder extends Seeder
             ['slug' => $slug],
             [
                 'slug' => $slug,
+                'profile_id' => $profile->id,
                 'title' => 'Laravel Personal Website (Ongoing)',
                 'type' => 'Self-Initiated Project',
                 'description' => 'This very website, built with Laravel, serves as my personal website and a platform to continuously explore and grow my skills.',
