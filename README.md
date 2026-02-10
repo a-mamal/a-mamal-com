@@ -129,8 +129,6 @@ Detailed descriptions follow below.
   - spoken languages  
   - profile links
   - projects
-    
-> Note: The projects relationship exists in the Project model.
 
 **Seeder / Factory:**  
 - `ProfileFactory` exists  
