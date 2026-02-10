@@ -82,7 +82,7 @@ Tables in this project:
 - [`profiles`](#table-profiles)
 - [`profile_links`](#table-profile_links)
 - [`projects`](#table-projects)
-- [`issuers`](#table-issuers)
+- [`organizations`](#table-organizations)
 - [`degrees`](#table-degrees)
 - [`certificates`](#table-certificates)
 - [`spoken_languages`](#table-spoken_languages)
@@ -166,7 +166,7 @@ Detailed descriptions follow below.
 | Column         | Type          | Nullable | Notes                                                    |
 |----------------|---------------|----------|----------------------------------------------------------|
 | `id`           | bigint        | No       | Primary key                                              |
-| `profile_id    | bigint        |No        | Foreign key → profiles.id, owner of the project          |
+| `profile_id`   | bigint        |No        | Foreign key → profiles.id, owner of the project          |
 | `title`        | varchar(255)  | No       | Name or title of the project                             |
 | `type`         | varchar(255)  | Yes      | Optional type/category of the project                    |
 | `slug`         | varchar(255)  | No       | Unique slug for the project, used in URLs                |
@@ -192,50 +192,57 @@ Detailed descriptions follow below.
 > Note: Each project may have highlights and URLs for demo or GitHub, which are useful for showcasing a portfolio. The `status` field allows for draft projects or published projects for display. Highlights are stored as JSON (longtext) for flexibility.
 
 
-### Table: `issuers`
-
-> ⚠️ Note: The `issuers` table will be renamed to [`organizations`](https://github.com/a-mamal/personal-website/issues/48) as part of the [Experiences epic](https://github.com/a-mamal/personal-website/issues/47).  
-> This table is currently used for certificates and degrees, but future work will consolidate all organizations (schools, companies, certifiers, etc.) into a single table.
+### Table: `organizations`
 
 | Column         | Type         | Nullable | Notes                                  |
 |----------------|--------------|----------|----------------------------------------|
 | `id`           | bigint       | No       | Primary key                            |
 | `name`         | varchar(255) | No       | Name of the issuing organization       |
-| `type`         | varchar(255) | No       | Type of issuer, e.g., company, platform|
+| `type`         | varchar(255) | No       | Type of organization, e.g., company, platform|
 | `website`      | varchar(255) | Yes      | Optional website URL                   |
 | `contact_email`| varchar(255) | Yes      | Optional contact email                 |
 | `created_at`   | timestamp    | Yes      | Laravel timestamp                      |
 | `updated_at`   | timestamp    | Yes      | Laravel timestamp                      |
 
 **Relationships:**  
-- An issuer can have many certificates.  
-- An issuer can have many degrees.  
+- An organizations can have many certificates.  
+- An organizations can have many degrees.  
 
 **Seeder / Factory:**  
-- `IssuerFactory` exists but is currently empty.  
-- `IssuerSeeder` exists and seeds data from `database/seeders/data/issuers.json`.
+- `OrganizationsFactory` exists but is currently empty.  
+- `OrganizationsSeeder` exists and seeds data from `database/seeders/data/organizations.json`.
+
+**History/Decisions**
+This table was initially named `issuers` and was  used for `certificates` and `degrees`. While the name made sense initially, going forward and seeking for the need to represent employers for the `experiences` table it was not suitable anymore.
+
+Creating a separate table for companies would have caused redundancy.
+Eg.: Since an organization can both issue certifications and employ people they would need to be in both tables.
+
+To simplify and future-proof the schema, the table was renamed to `organizations` to represent `schools`, `companies`, `certifiers`, and other entities in a single unified table.
+
+> **Note:** This decision was made as part of the `epic` [feat(experiences): implement experiences linked to organizations #47](https://github.com/a-mamal/personal-website/issues/47), with the actual change applied in the first sub-issue [#48](https://github.com/a-mamal/personal-website/issues/48).
 
 
 ### Table: `degrees`
 
-| Column       | Type         | Nullable | Notes                                    |
-|-------------|--------------|----------|-------------------------------------------|
-| `id`        | bigint       | No       | Primary key                               |
-| `profile_id`| bigint       | No       | Foreign key → profiles.id                 |
-| `issuer_id` | bigint       | No       | Foreign key → issuers.id                  |
-| `title`     | varchar(255) | No       | Name of the degree                        |
-| `level`     | varchar(255) | No       | Degree level, e.g., Bachelor, Master      |
-| `field`     | varchar(255) | Yes      | Specialization or field of study          |
-| `start_date`| date         | Yes      | When the degree started                   |
-| `end_date`  | date         | Yes      | When the degree ended                     |
-| `grade`     | varchar(255) | Yes      | Optional grade or GPA                     |
-| `image`     | varchar(255) | Yes      | Optional image of the degree certificate  |
-| `created_at`| timestamp    | Yes      | Laravel timestamp                         |
-| `updated_at`| timestamp    | Yes      | Laravel timestamp                         |
+| Column            | Type         | Nullable | Notes                                     |
+|-------------------|--------------|----------|-------------------------------------------|
+| `id`              | bigint       | No       | Primary key                               |
+| `profile_id`      | bigint       | No       | Foreign key → profiles.id                 |
+| `organization_id` | bigint       | No       | Foreign key → organizations.id            |
+| `title`           | varchar(255) | No       | Name of the degree                        |
+| `level`           | varchar(255) | No       | Degree level, e.g., Bachelor, Master      |
+| `field`           | varchar(255) | Yes      | Specialization or field of study          |
+| `start_date`      | date         | Yes      | When the degree started                   |
+| `end_date`        | date         | Yes      | When the degree ended                     |
+| `grade`           | varchar(255) | Yes      | Optional grade or GPA                     |
+| `image`           | varchar(255) | Yes      | Optional image of the degree certificate  |
+| `created_at`      | timestamp    | Yes      | Laravel timestamp                         |
+| `updated_at`      | timestamp    | Yes      | Laravel timestamp                         |
 
 **Relationships:**  
 - A degree belongs to one profile  
-- A degree belongs to one issuer  
+- A degree belongs to one organization  
 
 **Seeder / Factory:**  
 - `DegreeFactory` exists  
@@ -245,24 +252,24 @@ Detailed descriptions follow below.
 
 ### Table: `certificates`
 
-| Column           | Type         | Nullable | Notes                                         |
-|-----------------|--------------|----------|------------------------------------------------|
-| `id`            | bigint       | No       | Primary key                                    |
-| `profile_id`    | bigint       | No       | Foreign key → profiles.id                      |
-| `issuer_id`     | bigint       | No       | Foreign key → issuers.id                       |
-| `name`          | varchar(255) | No       | Name of the certificate                        |
-| `description`   | text         | Yes      | Optional description of the certificate        |
-| `date_awarded`  | date         | No       | When the certificate was issued                |
-| `expiration_date` | date       | Yes      | Expiry date if applicable                      |
-| `credential_link`| varchar(255)| Yes      | Optional URL to verify the certificate         |
-| `image`         | varchar(255) | Yes      | Optional certificate image                     |
-| `created_at`    | timestamp    | Yes      | Laravel timestamp                              |
-| `updated_at`    | timestamp    | Yes      | Laravel timestamp                              |
-| `spoken_language_id` | bigint   | Yes      | Optional foreign key → spoken_languages.id    |
+| Column               | Type         | Nullable | Notes                                          |
+|----------------------|--------------|----------|------------------------------------------------|
+| `id`                 | bigint       | No       | Primary key                                    |
+| `profile_id`         | bigint       | No       | Foreign key → profiles.id                      |
+| `organization_id`    | bigint       | No       | Foreign key → organizations.id                 |
+| `name`               | varchar(255) | No       | Name of the certificate                        |
+| `description`        | text         | Yes      | Optional description of the certificate        |
+| `date_awarded`       | date         | No       | When the certificate was issued                |
+| `expiration_date`    | date       | Yes      | Expiry date if applicable                        |
+| `credential_link`    | varchar(255)| Yes      | Optional URL to verify the certificate          |
+| `image`              | varchar(255) | Yes      | Optional certificate image                     |
+| `created_at`         | timestamp    | Yes      | Laravel timestamp                              |
+| `updated_at`         | timestamp    | Yes      | Laravel timestamp                              |
+| `spoken_language_id` | bigint   | Yes      | Optional foreign key → spoken_languages.id         |
 
 **Relationships:**  
 - A certificate belongs to one profile  
-- A certificate belongs to one issuer
+- A certificate belongs to one organization
 - A certificate optionally belongs to one spoken language (links the certificate to a profile's spoken language)
 
 **Seeder / Factory:**  
@@ -305,7 +312,7 @@ Detailed descriptions follow below.
 |-------------------------|------------------------------------------------------------------------------------|
 | User Profiles           | Support multiple profiles per user; currently only one profile per user            |
 | Projects & Portfolio    | Dynamic project listings, filtering, and categorization                            |
-| Certificates            | Enhanced management, filtering by issuer, and linking to profiles                  |
+| Certificates            | Enhanced management, filtering by organization, and linking to profiles            |
 | Blog Section            | Optional blog for tutorials, learning notes, and reflections (under consideration) |
 | Accessibility           | Improvements for keyboard navigation, screen readers, and ARIA attributes          |
 | Responsive Design       | Refined layouts for mobile, tablet, and desktop screens                            |
