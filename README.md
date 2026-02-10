@@ -137,6 +137,32 @@ It is still in-progress and will be updated.
 - `ProfileSeeder` exists
 
 
+
+### Table: `profile_links`
+
+| Column       | Type         | Nullable | Notes                                                      |
+|-------------|--------------|----------|------------------------------------------------------------|
+| `id`        | bigint       | No       | Primary key                                                |
+| `profile_id`| bigint       | No       | Foreign key → `profiles.id`, cascade on delete            |
+| `platform`  | enum         | No       | Platform type (`codepen`, `freecodecamp`, `github`, `hackthebox`, `leetcode`, `linkedin`, `website`, `other`). Defaults to `other`. |
+| `url`       | text         | No       | URL of the profile link                                    |
+| `created_at`| timestamp    | Yes      | Laravel timestamp                                          |
+| `updated_at`| timestamp    | Yes      | Laravel timestamp                                          |
+
+**Constraints:**  
+- Unique constraint: one link per platform per profile (`profile_id` + `platform`)  
+
+**Relationships:**  
+- A profile link belongs to one profile  
+
+**Seeder / Factory:**  
+- `ProfileLinkFactory` exists and generates realistic URLs based on the platform  
+- `ProfileLinkSeeder` exists and seeds 1–3 links per profile in local environments  
+
+> Note: The seeder only runs in local environments to avoid polluting production data.  
+
+
+
 ### Table: `projects`
 
 | Column         | Type          | Nullable | Notes                                                    |
