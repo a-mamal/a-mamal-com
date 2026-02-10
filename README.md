@@ -137,6 +137,33 @@ It is still in-progress and will be updated.
 - `ProfileSeeder` exists
 
 
+### Table: `degrees`
+
+| Column       | Type         | Nullable | Notes                                    |
+|-------------|--------------|----------|-------------------------------------------|
+| `id`        | bigint       | No       | Primary key                               |
+| `profile_id`| bigint       | No       | Foreign key → profiles.id                 |
+| `issuer_id` | bigint       | No       | Foreign key → issuers.id                  |
+| `title`     | varchar(255) | No       | Name of the degree                        |
+| `level`     | varchar(255) | No       | Degree level, e.g., Bachelor, Master      |
+| `field`     | varchar(255) | Yes      | Specialization or field of study          |
+| `start_date`| date         | Yes      | When the degree started                   |
+| `end_date`  | date         | Yes      | When the degree ended                     |
+| `grade`     | varchar(255) | Yes      | Optional grade or GPA                     |
+| `image`     | varchar(255) | Yes      | Optional image of the degree certificate  |
+| `created_at`| timestamp    | Yes      | Laravel timestamp                         |
+| `updated_at`| timestamp    | Yes      | Laravel timestamp                         |
+
+**Relationships:**  
+- A degree belongs to one profile  
+- A degree belongs to one issuer  
+
+**Seeder / Factory:**  
+- `DegreeFactory` exists  
+- `DegreeSeeder` exists
+
+
+
 ### Table: `certificates`
 
 | Column           | Type         | Nullable | Notes                                         |
