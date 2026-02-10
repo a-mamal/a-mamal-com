@@ -137,6 +137,32 @@ It is still in-progress and will be updated.
 - `ProfileSeeder` exists
 
 
+### Table: `certificates`
+
+| Column           | Type         | Nullable | Notes                                         |
+|-----------------|--------------|----------|------------------------------------------------|
+| `id`            | bigint       | No       | Primary key                                    |
+| `profile_id`    | bigint       | No       | Foreign key → profiles.id                      |
+| `issuer_id`     | bigint       | No       | Foreign key → issuers.id                       |
+| `name`          | varchar(255) | No       | Name of the certificate                        |
+| `description`   | text         | Yes      | Optional description of the certificate        |
+| `date_awarded`  | date         | No       | When the certificate was issued                |
+| `expiration_date` | date       | Yes      | Expiry date if applicable                      |
+| `credential_link`| varchar(255)| Yes      | Optional URL to verify the certificate         |
+| `image`         | varchar(255) | Yes      | Optional certificate image                     |
+| `created_at`    | timestamp    | Yes      | Laravel timestamp                              |
+| `updated_at`    | timestamp    | Yes      | Laravel timestamp                              |
+
+**Relationships:**  
+- A certificate belongs to one profile  
+- A certificate belongs to one issuer  
+
+**Seeder / Factory:**  
+- `CertificateFactory` exists  
+- `CertificateSeeder` exists 
+
+
+
 ### Table: `spoken_languages`
 
 | Column        | Type         | Nullable | Notes                                         |
