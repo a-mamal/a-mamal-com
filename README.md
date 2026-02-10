@@ -179,14 +179,16 @@ It is still in-progress and will be updated.
 | `image`         | varchar(255) | Yes      | Optional certificate image                     |
 | `created_at`    | timestamp    | Yes      | Laravel timestamp                              |
 | `updated_at`    | timestamp    | Yes      | Laravel timestamp                              |
+| `spoken_language_id` | bigint   | Yes      | Optional foreign key → spoken_languages.id    |
 
 **Relationships:**  
 - A certificate belongs to one profile  
-- A certificate belongs to one issuer  
+- A certificate belongs to one issuer
+- A certificate optionally belongs to one spoken language (links the certificate to a profile's spoken language)
 
 **Seeder / Factory:**  
-- `CertificateFactory` exists  
-- `CertificateSeeder` exists 
+- `CertificateFactory` exists but needs to be updated (see Issue #55)
+- `CertificateSeeder` exists but needs to be updated (see Issue #56)
 
 
 
