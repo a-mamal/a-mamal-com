@@ -107,7 +107,9 @@ Detailed descriptions follow below.
 
 **Seeder / Factory:**  
 - `UserFactory` exists for generating test users.
-- `UserSeeder` doesn't exist yet.
+- `UserSeeder` exists and is environment-aware:
+   - Local: seeds main admin user (from `.env`) + 5 random demo users  
+   - Production: seeds only the main admin user (from `.env`)
 
 
 ### Table: `profiles`
