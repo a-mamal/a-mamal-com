@@ -21,8 +21,14 @@ class DatabaseSeeder extends Seeder
                 UserSeeder::class,
                 ProfileSeeder::class,
                 ProfileLinkSeeder::class,
+                OrganizationSeeder::class,
                 CertificateSeeder::class,
+                DegreeSeeder::class,
+                SpokenLanguageSeeder::class,
+                ProjectSeeder::class
             ]);
+        } elseif (app()->environment('production')){
+            $this->call(ProductionDatabaseSeeder::class);
         }
     }
 }
