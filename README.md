@@ -2,6 +2,8 @@
 
 [<img alt="Deployed with FTP Deploy Action" src="https://img.shields.io/badge/Deployed With-FTP DEPLOY ACTION-%3CCOLOR%3E?style=for-the-badge&color=0077b6">](https://github.com/SamKirkland/FTP-Deploy-Action)
 
+[![good first issue](https://img.shields.io/badge/good%20first%20issue-available-brightgreen)](https://github.com/a-mamal/personal-website/labels/good%20first%20issue)
+
 ## Table of Contents
 
 - [Learning in Public](#learning-in-public)
