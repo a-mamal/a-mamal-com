@@ -22,7 +22,7 @@ class ProductionDatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             OrganizationSeeder::class,
-            ProductionProfileSeeder::class,
+            ProfileSeeder::class,
             ProductionCertificateSeeder::class,
             ProductionDegreeSeeder::class,
             ProductionProfileLinkSeeder::class,
