@@ -8,7 +8,6 @@ use Database\Seeders\Production\ProductionProfileSeeder;
 use Database\Seeders\Production\ProductionCertificateSeeder;
 use Database\Seeders\Production\ProductionDegreeSeeder;
 use Database\Seeders\Production\ProductionProfileLinkSeeder;
-use Database\Seeders\Production\ProductionProjectSeeder;
 use Database\Seeders\Production\ProductionSpokenLanguageSeeder;
 
 
@@ -26,7 +25,7 @@ class ProductionDatabaseSeeder extends Seeder
             CertificateSeeder::class,
             ProductionDegreeSeeder::class,
             ProductionProfileLinkSeeder::class,
-            ProductionProjectSeeder::class,
+            ProjectSeeder::class,
             ProductionSpokenLanguageSeeder::class
         ]);
     }
