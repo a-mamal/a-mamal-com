@@ -21,15 +21,16 @@
 
         @include('partials.header')
 
-        <!-- Page Heading -->
-        @isset($header)
-            <header>
-                {{ $header }}
-            </header>
-        @endisset
+        @props(['header' => null])
 
         <div class="right-wrapper">
             <main>
+                @isset($header)
+                    <header class="page-header">
+                        {!! $header !!}
+                    </header>
+                @endisset
+
                 {{ $slot }}
             </main>
 
