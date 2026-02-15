@@ -1,9 +1,10 @@
-<x-site-layout :title="'Projects'">
-
-    <header class="projects-header">
-        <h1>Projects</h1>
-        <p>A selection of projects I’ve developed, showcasing skills and focus areas.</p>
-    </header>
+<x-site-layout 
+    :title="'Projects'"
+    :header="view('partials.page-header', [
+        'title' => 'Projects',
+        'subtitle' => 'A selection of projects I’ve developed, showcasing skills and focus areas.'
+    ])"
+>
 
     <section class="projects-list">
 

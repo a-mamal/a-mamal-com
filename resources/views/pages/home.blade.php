@@ -1,6 +1,10 @@
-<x-site-layout :title="'Home | Mamalikidou Anastasia'">
-
-    <h2>Welcome to my website!</h2>
+<x-site-layout 
+    :title="'Home | Mamalikidou Anastasia'"
+    :header="view('partials.page-header', [
+        'title' => 'Home',
+        'subtitle' => 'Welcome to my website!'
+        ])"
+>
     @include('partials.home.hero')
     @include('partials.home.projects')
 </x-site-layout>

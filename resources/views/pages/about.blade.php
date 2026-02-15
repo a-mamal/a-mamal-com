@@ -1,7 +1,7 @@
-<x-site-layout :title="'About | Mamalikidou Anastasia'">
-    <x-slot name="header">
-        <h1>About</h1>
-    </x-slot>
+<x-site-layout 
+    :title="'About | Mamalikidou Anastasia'"
+    :header="view('partials.page-header', ['title' => 'About'])"
+>
 
     @include('partials.about.bio')
     @include('partials.about.links')
