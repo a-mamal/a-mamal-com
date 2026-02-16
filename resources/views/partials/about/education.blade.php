@@ -2,35 +2,41 @@
     <section id="education" class="about-section">
         <h2>Education</h2>
 
-        <ul>
         @foreach($degrees as $degree)
-            <li>
+            <article class="education-item">
                 {{-- Degree title and optional field --}}
-                <strong>{{ $degree->title }}</strong>
-                @if($degree->field)
-                    - {{ $degree->field }}
-                @endif
-                <br>
+                <h3>
+                    {{ $degree->title }}
+                    @if($degree->field)
+                        - {{ $degree->field }}
+                    @endif
+                </h3>
 
-                {{-- Organization name --}}
-                @if($degree->organization->website)
-                    <a href="{{ $degree->organization->website }}" target="_blank" rel="noopener noreferrer">
-                        <em>{{ $degree->organization->name ?? 'Unknown organization' }}</em>
-                    </a>
-                @else
-                    <em>{{ $degree->organization->name ?? 'Unknown organization' }}</em>
-                @endif
-                <br>
+                {{-- Organization --}}
+                <p class="education-organization">
+                    @if($degree->organization->website)
+                        <a href="{{ $degree->organization->website }}" target="_blank" rel="noopener noreferrer">
+                            {{ $degree->organization->name ?? 'Unknown organization' }}
+                        </a>
+                    @else
+                        {{ $degree->organization->name ?? 'Unknown organization' }}
+                    @endif
+                </p>
 
-                {{-- Formatted start and end dates --}}
-                <span>{{ $degree->formatted_start }} - {{ $degree->formatted_end }}</span>
+                <p class="education-dates">
+                    {{-- Formatted start and end dates --}}
+                    {{ $degree->formatted_start }} - {{ $degree->formatted_end }}
+                </p>
 
                 {{-- Optional grade --}}
                 @if($degree->grade)
-                    <br>Grade: {{ $degree->grade }}
+                    <p class="education-grade">
+                        Grade: {{ $degree->grade }}
+                    </p>
                 @endif
-            </li>
+                
+            </article>
         @endforeach
-        </ul>
+
     </section>
 @endif
