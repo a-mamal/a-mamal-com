@@ -7,11 +7,45 @@
     --space-xl: 3rem;
     --space-xxl: 4rem;
     
-    --color-text: #333;
+/* ---------------------- Colours ----------------------- */
+
+    /* Initial colours */
+    /* --color-text: #333;
     --color-muted: #555;
     --color-primary: #1a1a1a;
     --color-accent: #6495ED;
-    --color-bg: #ffffff;
+    --color-bg: #ffffff; */
+
+/* This vibrant palette was originally designed for my thesis project
+   but never used there. Finally getting to see it in action here! */
+
+/* Names according to Coolors.co: */
+
+    --color-fire-engine-red: rgb(198, 40, 40);
+    --color-folly:           rgb(255, 71, 94);
+    --color-selective-yellow:rgb(244, 180, 0);
+    --color-yellow-green:    rgb(138, 201, 38);
+    --color-steel-blue:      rgb(25, 130, 196);
+    --color-white:           rgb(255, 255, 255);
+    --color-seasalt:         rgb(250, 250, 250);
+    --color-light-cyan:      rgb(224, 247, 250);
+    --color-silver:          rgb(189, 189, 189);
+    --color-onyx:            rgb(60, 60, 60);
+    --color-smokey-black:    rgb(16, 12, 8);
+
+    /* Color roles */
+    --color-primary:        var(--color-steel-blue); 
+    --color-secondary:      var(--color-folly);
+    --color-accent:         var(--color-selective-yellow);
+    --color-background:     var(--color-seasalt);
+    --color-surface:        var(--color-light-cyan);
+    --color-text-primary:   var(--color-onyx);
+    --color-text-secondary: var(--color-silver);
+    --color-border:         var(--color-silver);
+    --color-error:          var(--color-fire-engine-red);
+    --color-success:        var(--color-yellow-green);
+    --color-warning:        var(--color-selective-yellow);
+    --color-info:           var(--color-steel-blue);
 }
 
 /* -------------------- Reset & Base -------------------- */
