@@ -16,7 +16,7 @@
         <title>{{ $title }}</title>
         <meta name="description" content="{{ $description }}">
 
-        <link rel="canonical" href="https://a-mamal.com">
+        <link rel="canonical" href="https://a-mamal.com{{ request()->getRequestUri() }}">
         
         <meta name="theme-color" content="#555">
         @vite('resources/css/app.css')
