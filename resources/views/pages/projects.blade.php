@@ -10,43 +10,54 @@
     <section class="projects-list">
 
         @forelse($projects as $project)
-            <article class="project-item">
+
+            <article class=" card project-card">
                 {{-- Title  --}}
                 <h2>{{ $project->title }}</h2>
 
                 {{-- Type --}}
                 @if($project->type)
-                    <h3 class="project-type">{{ $project->type }}</h3>
+                    <h3 class="card-meta">{{ $project->type }}</h3>
                 @endif
 
                 {{-- Description --}}
                 @if($project->description)
-                    <p class="project-description">{{ $project->description }}</p>
+                    <p class="card-text">{{ $project->description }}</p>
                 @endif
 
                 {{-- Highlights --}}
                 @if($project->highlights)
-                    <ul class="project-highlights">
+                    <ul class="card-list">
                         @foreach($project->highlights as $highlight)
-                            <li>{!! $highlight !!}</li>
+                            <li class="card-list-item">{!! $highlight !!}</li>
                         @endforeach
                     </ul>
                 @endif
 
                 {{-- Links --}}
-                <div class="project-links">
+                <div class="card-actions">
                     @if($project->github_url)
-                        <a href="{{ $project->github_url }}" target="_blank">GitHub</a>
+                        <a  href="{{ $project->github_url }}"
+                            class="button" 
+                            target="_blank">
+                            GitHub
+                        </a>
                     @endif
+
                     @if($project->project_url)
-                        <a href="{{ $project->project_url }}" target="_blank">Live Demo</a>
+                        <a  href="{{ $project->project_url }}" 
+                            class="button"
+                            target="_blank">
+                            Live Demo
+                        </a>
                     @endif
+
                 </div>
             </article>
 
-            @empty
+        @empty
                 <p>No projects available at the moment. Check back soon!</p>
-            @endforelse
+        @endforelse
 
     </section>
 
