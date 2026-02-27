@@ -13,7 +13,7 @@
 
             <article class=" card project-card">
                 {{-- Title  --}}
-                <h2>{{ $project->title }}</h2>
+                <h2 class="card-title">{{ $project->title }}</h2>
 
                 {{-- Type --}}
                 @if($project->type)
