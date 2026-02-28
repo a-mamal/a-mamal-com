@@ -158,8 +158,7 @@ section h2 {
 
 /* -------------------- Shared Styles -------------------- */
 
-.project-item,
-.about-section article {
+.card {
     padding: var(--space-md);
     border: 1px solid var(--color-border);
     border-radius: 8px;
@@ -167,21 +166,18 @@ section h2 {
     transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.project-item:hover,
-.about-section article:hover {
+.card:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-color: var(--color-border);
 }
 
-.project-item h2,
-.about-section h3 {
+.card-title {
     font-size: 1.5em;
     margin-bottom: var(--space-sm);
     color: var(--color-primary);
 }
 
-.about-section p,
-.project-description {
+.card-text {
     color: var(--color-text-secondary);
     line-height: 1.6;
     margin-bottom: var(--space-sm);
@@ -195,32 +191,32 @@ section h2 {
     gap: var(--space-md);
 }
 
-.project-type {
+.card-meta {
     font-size: 0.9em;
     color: var(--color-secondary);
     margin-bottom: 0.75em;
     font-weight: 500;
 }
 
-.project-highlights {
+.card-list {
     margin: var(--space-sm) 0;
     padding-left: var(--space-md);
 }
 
-.project-highlights li {
+.card-list li {
     color: var(--color-muted);
     line-height: 1.6;
     margin-bottom: var(--space-xs);
     list-style-type: disc;
 }
 
-.project-links {
+.card-actions {
     display: flex;
     gap: var(--space-sm);
     margin-top: var(--space-sm);
 }
 
-.project-links a {
+.card-actions a {
     display: inline-block;
     padding: var(--space-xs) var(--space-sm);
     background-color: var(--color-primary);
@@ -231,7 +227,7 @@ section h2 {
     transition: background-color 0.2s ease;
 }
 
-.project-links a:hover {
+.card-actions a:hover {
     background-color: var(--color-secondary);
 }
 
@@ -247,7 +243,7 @@ section h2 {
         gap: var(--space-lg);
     }
     
-    .project-item {
+    .card {
         padding: var(--space-lg);
     }
 }
