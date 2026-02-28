@@ -8,16 +8,17 @@
 >
 
     <section class="projects-list">
+        <h2>All projects</h2>
 
         @forelse($projects as $project)
 
             <article class=" card project-card">
                 {{-- Title  --}}
-                <h2 class="card-title">{{ $project->title }}</h2>
+                <h3 class="card-title">{{ $project->title }}</h3>
 
                 {{-- Type --}}
                 @if($project->type)
-                    <h3 class="card-meta">{{ $project->type }}</h3>
+                    <p class="card-meta">{{ $project->type }}</p>
                 @endif
 
                 {{-- Description --}}
