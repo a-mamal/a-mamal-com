@@ -156,7 +156,7 @@ section h2 {
     font-size: 1em;
 }
 
-/* -------------------- Shared Styles -------------------- */
+/* -------------------- Cards -------------------- */
 
 .card {
     padding: var(--space-md);
@@ -181,14 +181,6 @@ section h2 {
     color: var(--color-text-secondary);
     line-height: 1.6;
     margin-bottom: var(--space-sm);
-}
-
-/* -------------------- Projects Page -------------------- */
-
-.projects-section {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
 }
 
 .card-meta {
@@ -229,6 +221,14 @@ section h2 {
 
 .card-actions a:hover {
     background-color: var(--color-secondary);
+}
+
+/* -------------------- Projects Page -------------------- */
+
+.projects-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
 }
 
 /* Responsive adjustments */
