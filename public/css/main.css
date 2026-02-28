@@ -64,6 +64,15 @@
     --color-success:        var(--color-yellow-green);
     --color-warning:        var(--color-selective-yellow);
     --color-info:           var(--color-steel-blue);
+
+    /* Shadows */
+    --shadow-section: 0 2px 8px var(--color-border-section);
+
+    --shadow-card-sm: 0 1px 4px var(--color-border-card);
+    --shadow-card-md: 0 4px 12px var(--color-border-card);
+    --shadow-card-lg: 0 8px 24px var(--color-border-card);
+
+    --shadow-input: 0 0 0 2px var(--color-border-input-focus);
 }
 
 /* -------------------- Reset & Base -------------------- */
@@ -173,11 +182,12 @@ section h2 {
     border: 1px solid var(--color-border-card);
     border-radius: 8px;
     background-color: var(--color-surface-30);
+    box-shadow: var(--shadow-card-sm);
     transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .card:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-card-md);
     border-color: var(--color-border-card);
 }
 
@@ -284,7 +294,7 @@ section h2 {
 .contact-section input:focus,
 .contact-section textarea:focus {
     border-color: var(--color-border-input-focus);
-    box-shadow: 0 0 0 2px var(--color-primary);
+    box-shadow: var(--shadow-input);
 }
 
 .contact-section textarea {
