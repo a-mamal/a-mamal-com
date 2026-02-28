@@ -250,12 +250,6 @@ section h2 {
 
 /* -------------------- About Page -------------------- */
 
-.about-section {
-    padding: var(--space-md);
-    border-radius: 8px;
-    border: 1px solid rgb(203, 203, 203);
-    background-color: rgb(203, 203, 203,0.1);
-}
 
 
 .cert-item,
