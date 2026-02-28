@@ -54,7 +54,12 @@
     --color-text-primary-70:var(--color-onyx-70);
 
     --color-text-muted:     var(--color-silver);
-    --color-border:         var(--color-silver);
+
+    --color-border-section: var(--color-silver-30);
+    --color-border-card:    var(--color-silver);
+    --color-border-input:   var(--color-silver);
+    --color-border-input-focus: var(--color-primary);
+
     --color-error:          var(--color-fire-engine-red);
     --color-success:        var(--color-yellow-green);
     --color-warning:        var(--color-selective-yellow);
@@ -165,7 +170,7 @@ section h2 {
 
 .card {
     padding: var(--space-md);
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-border-card);
     border-radius: 8px;
     background-color: var(--color-surface-30);
     transition: box-shadow 0.2s ease, border-color 0.2s ease;
@@ -173,7 +178,7 @@ section h2 {
 
 .card:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-color: var(--color-border);
+    border-color: var(--color-border-card);
 }
 
 .card-title {
@@ -254,7 +259,7 @@ section h2 {
 .contact-section {
     padding: var(--space-md);
     border-radius: 8px;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-border-section);
     background-color: var(--color-surface-30);
 }
 
@@ -267,7 +272,7 @@ section h2 {
 .contact-section input,
 .contact-section textarea {
     padding: var(--space-sm);
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-border-input);
     border-radius: 6px;
     font-size: 1em;
     width: 100%;
@@ -278,7 +283,7 @@ section h2 {
 
 .contact-section input:focus,
 .contact-section textarea:focus {
-    border-color: var(--color-primary);
+    border-color: var(--color-border-input-focus);
     box-shadow: 0 0 0 2px var(--color-primary);
 }
 
