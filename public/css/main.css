@@ -213,7 +213,9 @@ section h2 {
     margin-top: var(--space-sm);
 }
 
-.card-actions a {
+/*-------------------- Buttons ---------------------*/
+
+.button {
     display: inline-block;
     padding: var(--space-xs) var(--space-sm);
     background-color: var(--color-primary);
@@ -224,7 +226,7 @@ section h2 {
     transition: background-color 0.2s ease;
 }
 
-.card-actions a:hover {
+.button:hover {
     background-color: var(--color-secondary);
 }
 
