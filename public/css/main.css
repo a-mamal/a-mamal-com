@@ -185,7 +185,7 @@ section h2 {
 
 /* -------------------- Projects Page -------------------- */
 
-.projects-list {
+.projects-section {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-md);
@@ -233,13 +233,13 @@ section h2 {
 
 /* Responsive adjustments */
 @media (min-width: 768px) {
-    .projects-list {
+    .projects-section {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (min-width: 1024px) {
-    .projects-list {
+    .projects-section {
         gap: var(--space-lg);
     }
     

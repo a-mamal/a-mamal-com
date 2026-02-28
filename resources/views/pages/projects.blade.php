@@ -7,7 +7,7 @@
     ])"
 >
 
-    <section class="projects-list">
+    <section class="projects-section">
         <h2>All projects</h2>
 
         @forelse($projects as $project)
