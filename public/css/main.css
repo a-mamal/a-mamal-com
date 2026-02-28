@@ -157,6 +157,11 @@ section h2 {
 }
 
 /* -------------------- Cards -------------------- */
+.card-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+}
 
 .card {
     padding: var(--space-md);
@@ -225,21 +230,15 @@ section h2 {
 
 /* -------------------- Projects Page -------------------- */
 
-.projects-section {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-}
-
 /* Responsive adjustments */
 @media (min-width: 768px) {
-    .projects-section {
+    .card-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (min-width: 1024px) {
-    .projects-section {
+    .card-grid {
         gap: var(--space-lg);
     }
     
