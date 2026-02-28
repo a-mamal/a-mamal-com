@@ -287,22 +287,6 @@ section h2 {
     min-height: 10rem;
 }
 
-.contact-section button {
-    align-self: flex-start;
-    padding: var(--space-sm) var(--space-lg);
-    background-color: var(--color-primary);
-    border: none;
-    border-radius: 6px;
-    color: var(--color-white);
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.2s ease;
-}
-
-.contact-section button:hover {
-    background-color: var(--color-secondary);
-}
-
 .contact-success {
     color: var(--color-success);
     margin-top: var(--space-sm);
