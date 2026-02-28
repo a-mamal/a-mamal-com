@@ -248,30 +248,6 @@ section h2 {
     }
 }
 
-/* -------------------- About Page -------------------- */
-
-
-
-.cert-item,
-.education-item {
-    display: flex;
-    flex-direction: column;
-    margin: var(--space-xs) 0;
-}
-
-/* Certifications specific */
-.cert-link a {
-    text-decoration: none;
-    color: var(--color-accent);
-    transition: color 0.2s ease;
-}
-
-.cert-link a:hover {
-    color: var(--color-accent);
-}
-
-
-
 /* -------------------- Contact Form -------------------- */
 
 .contact-section {
