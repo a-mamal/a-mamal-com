@@ -1,11 +1,27 @@
-/* -------------------- Spacing Scale -------------------- */
 :root {
+    /* -------------------- Spacing Scale -------------------- */
     --space-xs: 0.5rem;
     --space-sm: 1rem;
     --space-md: 1.5rem;
     --space-lg: 2rem;
     --space-xl: 3rem;
     --space-xxl: 4rem;
+
+    /* -------------------- Typography Scale -------------------- */
+   
+    --font-size-xs: 0.75rem;    
+    --font-size-sm: 0.875rem;   
+    --font-size-md: 1rem;       /* body text */
+    --font-size-lg: 1.25rem;    /* subheadings, card titles */
+    --font-size-xl: 1.5rem;     /* section headings, h2 */
+    --font-size-xxl: 2rem;      /* main headings, h1 */
+
+    --line-height-xs: 1rem;
+    --line-height-sm: 1.25rem;
+    --line-height-md: 1.5rem;
+    --line-height-lg: 1.75rem;
+    --line-height-xl: 2rem;
+    --line-height-xxl: 2.5rem;
     
 /* ---------------------- Colours ----------------------- */
 
@@ -149,7 +165,7 @@ section {
 
 section h2 {
     margin-bottom: var(--space-sm);
-    font-size: 1.7em;
+    font-size: var(--font-size-xl);
     color: var(--color-primary);
 }
 
@@ -160,14 +176,14 @@ section h2 {
 }
 
 .page-header h1 {
-    font-size: 2em;
+    font-size: var(--font-size-xxl);
     margin-bottom: var(--space-sm);
     color: var(--color-text-primary);
 }
 
 .page-header p {
     color: var(--color-text-secondary);
-    font-size: 1em;
+    font-size: var(--font-size-md);
 }
 
 /* -------------------- Cards -------------------- */
@@ -192,19 +208,19 @@ section h2 {
 }
 
 .card-title {
-    font-size: 1.5em;
+    font-size: var(--font-size-lg);
     margin-bottom: var(--space-sm);
     color: var(--color-primary);
 }
 
 .card-text {
     color: var(--color-text-secondary);
-    line-height: 1.6;
+    line-height: var(--line-height-md);
     margin-bottom: var(--space-sm);
 }
 
 .card-meta {
-    font-size: 0.9em;
+    font-size: var(--font-size-sm);
     color: var(--color-secondary);
     margin-bottom: 0.75em;
     font-weight: 500;
@@ -217,7 +233,7 @@ section h2 {
 
 .card-list li {
     color: var(--color-muted);
-    line-height: 1.6;
+    line-height: var(--line-height-md);
     margin-bottom: var(--space-xs);
     list-style-type: disc;
 }
@@ -237,7 +253,7 @@ section h2 {
     color: var(--color-white);
     text-decoration: none;
     border-radius: 4px;
-    font-size: 0.9em;
+    font-size: var(--font-size-sm);
     transition: background-color 0.2s ease;
 }
 
@@ -284,7 +300,7 @@ section h2 {
     padding: var(--space-sm);
     border: 1px solid var(--color-border-input);
     border-radius: 6px;
-    font-size: 1em;
+    font-size: var(--font-size-md);
     width: 100%;
     background-color: var(--color-white);
     color: var(--color-text-primary);
