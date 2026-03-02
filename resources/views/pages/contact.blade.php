@@ -1,11 +1,11 @@
 <x-site-layout
     :title="'Contact | Anastasia Mamalikidou'"
     :description="'Get in touch with Anastasia Mamalikidou, full-stack web developer. Reach out for collaborations, projects, or general inquiries.'"
+    :headerTitle="'Contact me'"
+    :subtitle="'Reach out for collaborations, projects, or general inquiries.'"
 >
 
     <section class="contact-section">
-        <h2>Contact Me</h2>
-
         @if(session('success'))
             <div class="contact-success">{{ session('success') }}</div>
         @endif
