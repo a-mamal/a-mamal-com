@@ -1,10 +1,8 @@
 <x-site-layout 
     :title="'Projects | Anastasia Mamalikidou'"
     :description="'A selection of projects by Anastasia Mamalikidou, demonstrating full-stack web development skills and areas of focus.'"
-    :header="view('partials.page-header', [
-        'title' => 'Projects',
-        'subtitle' => 'A selection of projects I’ve developed, showcasing skills and focus areas.'
-    ])"
+    :headerTitle="'Projects'"
+    :subtitle="'A selection of projects I’ve developed, showcasing skills and focus areas.'"
 >
 
     <section class="projects-list">
