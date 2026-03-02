@@ -46,12 +46,12 @@
                 {{-- Page specific header --}}
                 <header class="page-header">
                     <h1 class="page-header-title">
-                        {{ $headerTitle }}
+                        {!! $headerTitle !!}
                     </h1>
 
                     @isset($subtitle)
                         <p class="page-header-subtitle">
-                            {{ $subtitle }}
+                            {!! $subtitle !!}
                         </p>
                     @endisset
                 </header>
