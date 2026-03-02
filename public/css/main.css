@@ -182,7 +182,7 @@ section h2 {
 }
 
 .page-header p {
-    color: var(--color-text-secondary);
+    color: var(--color-text-primary-70);
     font-size: var(--font-size-md);
 }
 
@@ -214,7 +214,7 @@ section h2 {
 }
 
 .card-text {
-    color: var(--color-text-secondary);
+    color: var(--color-text-primary-70);
     line-height: var(--line-height-md);
     margin-bottom: var(--space-sm);
 }
@@ -222,7 +222,7 @@ section h2 {
 .card-meta {
     font-size: var(--font-size-sm);
     color: var(--color-secondary);
-    margin-bottom: 0.75em;
+    margin-bottom: var(--space-xs);
     font-weight: 500;
 }
 
@@ -232,7 +232,7 @@ section h2 {
 }
 
 .card-list li {
-    color: var(--color-muted);
+    color: var(--color-text-primary-70);
     line-height: var(--line-height-md);
     margin-bottom: var(--space-xs);
     list-style-type: disc;
