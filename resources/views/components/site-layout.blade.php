@@ -1,7 +1,8 @@
 @props([
     'title' => config('app.name', 'Mamalikidou Anastasia'),
     'description' => config('app.description', 'Passionate full-stack web developer crafting responsive and accessible websites and applications. Let\'s build!'),    
-    'header' => null,
+    'headerTitle' => null,  // Visible H1
+    'subtitle' => null      // Optional subtitle under H1
 ])
 
 <!DOCTYPE html>
@@ -43,11 +44,17 @@
         <div class="right-wrapper">
             <main>
                 {{-- Page specific header --}}
-                @isset($header)
-                    <header class="page-header">
-                        {!! $header !!}
-                    </header>
-                @endisset
+                <header class="page-header">
+                    <h1 class="page-header-title">
+                        {{ $headerTitle }}
+                    </h1>
+
+                    @isset($subtitle)
+                        <p class="page-header-subtitle">
+                            {{ $subtitle }}
+                        </p>
+                    @endisset
+                </header>
                 
                 {{-- Main page content slot --}}
                 {{ $slot }}
