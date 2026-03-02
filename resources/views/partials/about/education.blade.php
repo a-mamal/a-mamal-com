@@ -3,9 +3,9 @@
         <h2>Education</h2>
 
         @foreach($degrees as $degree)
-            <article class="education-item">
+            <article class="card education-card">
                 {{-- Degree title and optional field --}}
-                <h3>
+                <h3 class="card-title">
                     {{ $degree->title }}
                     @if($degree->field)
                         - {{ $degree->field }}
@@ -13,7 +13,7 @@
                 </h3>
 
                 {{-- Organization --}}
-                <p class="education-organization">
+                <p class="card-meta">
                     @if($degree->organization->website)
                         <a href="{{ $degree->organization->website }}" target="_blank" rel="noopener noreferrer">
                             {{ $degree->organization->name ?? 'Unknown organization' }}
@@ -23,14 +23,14 @@
                     @endif
                 </p>
 
-                <p class="education-dates">
+                <p class="card-text">
                     {{-- Formatted start and end dates --}}
                     {{ $degree->formatted_start }} - {{ $degree->formatted_end }}
                 </p>
 
                 {{-- Optional grade --}}
                 @if($degree->grade)
-                    <p class="education-grade">
+                    <p class="card-text">
                         Grade: {{ $degree->grade }}
                     </p>
                 @endif
