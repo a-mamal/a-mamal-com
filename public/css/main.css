@@ -172,17 +172,27 @@ section h2 {
 /* Page header */
 
 .page-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: var(--shadow-card-md);
+    background: linear-gradient(135deg,var(--color-onyx), var(--color-folly), var(--color-selective-yellow));
+    padding: var(--space-xxl) var(--space-md);
     margin-bottom: var(--space-xl);
+    gap: var(--space-sm);
+    color: var(--color-white);
 }
 
 .page-header h1 {
     font-size: var(--font-size-xxl);
     margin-bottom: var(--space-sm);
-    color: var(--color-text-primary);
 }
 
 .page-header p {
-    color: var(--color-text-primary-70);
+    color: var(--color-white);
     font-size: var(--font-size-md);
 }
 
