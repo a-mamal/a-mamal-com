@@ -271,6 +271,24 @@ section h2 {
     background-color: var(--color-secondary);
 }
 
+/* --------------------- Home Page ----------------------- */
+
+.home-intro {
+    margin-bottom: var(--space-xxl);
+    padding: var(--space-lg);
+    border-radius: 8px;
+    background-color: var(--color-surface-30);
+    box-shadow: var(--shadow-card-sm);
+    color: var(--color-text-primary-70);
+}
+
+.home-intro p {
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-md);
+    margin-bottom: var(--space-md);
+}
+
+
 /* -------------------- Projects Page -------------------- */
 
 /* Responsive adjustments */
