@@ -37,7 +37,7 @@
                     <div class="card-actions">
                         @if($project->github_url)
                             <a  href="{{ $project->github_url }}"
-                                class="button" 
+                                class="button-fire" 
                                 target="_blank">
                                 GitHub
                             </a>
@@ -45,7 +45,7 @@
 
                         @if($project->project_url)
                             <a  href="{{ $project->project_url }}" 
-                                class="button"
+                                class="button-fire"
                                 target="_blank">
                                 Live Demo
                             </a>

@@ -6,7 +6,8 @@
 >
     <section class="home-intro">
         <p>Here you'll find some of my projects, experiments, and ongoing explorations in web development. Feel free to take a look around!</p>
-        <a href="{{ route('projects') }}" class="button">See My Projects →</a>
+        <a  href="{{ route('projects') }}" 
+            class="button-fire">See My Projects →</a>
     </section>
     @include('partials.home.projects')
 </x-site-layout>
