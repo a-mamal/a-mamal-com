@@ -264,11 +264,52 @@ section h2 {
     text-decoration: none;
     border-radius: 4px;
     font-size: var(--font-size-sm);
-    transition: background-color 0.2s ease;
+    transition: 
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background-color 0.2s ease;
 }
 
 .button:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-card-sm);
     background-color: var(--color-secondary);
+}
+
+.button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.button-fire {
+    display: inline-block;
+    position: relative;
+    padding: var(--space-xs) var(--space-md);
+    background: linear-gradient(
+        135deg,
+        var(--color-folly), 
+        var(--color-selective-yellow));
+    color: var(--color-smokey-black);
+    border-radius: 4px;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: transform 0.15s ease,
+                filter 0.15s ease,
+                box-shadow 0.15s ease;
+    cursor: pointer;
+}
+
+.button-fire:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-card-sm);
+    filter: brightness(1.10);
+}
+
+.button-fire:active {
+    transform: translateY(0);
+    box-shadow: none;
+    filter: brightness(0.95);
 }
 
 /* --------------------- Home Page ----------------------- */
