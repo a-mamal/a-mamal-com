@@ -82,6 +82,9 @@
     --color-info:           var(--color-steel-blue);
 
     /* Shadows */
+    
+    --shadow-sidebar: 2px 0 8px var(--color-onyx-70);
+
     --shadow-section: 0 2px 8px var(--color-border-section);
 
     --shadow-card-sm: 0 1px 4px var(--color-border-card);
@@ -119,7 +122,11 @@ body {
     flex: 0 1 20%;
     align-self: flex-start;
     padding: var(--space-md);
-    background-color: var(--color-primary);
+    background: linear-gradient(
+        180deg,
+        var(--color-primary) ,
+        var(--color-secondary) 95%);
+    box-shadow: var(--shadow-sidebar);
     color: var(--color-white);
     min-height: 100vh;
     position: sticky;
