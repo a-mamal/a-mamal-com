@@ -25,13 +25,6 @@
     
 /* ---------------------- Colours ----------------------- */
 
-    /* Initial colours */
-    /* --color-text: #333;
-    --color-muted: #555;
-    --color-primary: #1a1a1a;
-    --color-accent: #6495ED;
-    --color-bg: #ffffff; */
-
 /* This vibrant palette was originally designed for my thesis project
    but never used there. Finally getting to see it in action here! */
 
@@ -42,7 +35,10 @@
     --color-selective-yellow:rgb(244, 180, 0);
     --color-yellow-green:    rgb(138, 201, 38);
     --color-steel-blue:      rgb(25, 130, 196);
+
     --color-white:           rgb(255, 255, 255);
+    --color-white-10:        rgba(255, 255, 255, 0.1);
+
     --color-seasalt:         rgb(250, 250, 250);
 
     --color-light-cyan:      rgb(224, 247, 250);
@@ -82,6 +78,9 @@
     --color-info:           var(--color-steel-blue);
 
     /* Shadows */
+
+    --shadow-sidebar: 2px 0 8px var(--color-onyx-70);
+
     --shadow-section: 0 2px 8px var(--color-border-section);
 
     --shadow-card-sm: 0 1px 4px var(--color-border-card);
@@ -89,6 +88,50 @@
     --shadow-card-lg: 0 8px 24px var(--color-border-card);
 
     --shadow-input: 0 0 0 2px var(--color-border-input-focus);
+
+    /* -------------------- Button default vars -------------------- */
+    --button-bg: var(--color-primary);
+    --button-hover: var(--color-secondary);
+
+    /* -------------------- Header default vars -------------------- */
+    --main-header-gradient: linear-gradient(180deg, var(--color-primary),var(--color-text-primary-70) 95%);
+    --page-header-gradient: linear-gradient(135deg, var(--color-primary),var(--color-secondary));
+
+}
+
+/* ---------------------- Themes ----------------------- */
+
+/* Day theme */
+[data-theme="day"] {
+    --main-header-gradient: linear-gradient(
+        180deg, 
+        var(--color-primary), 
+        var(--color-text-primary-70) 95%
+    );
+    --page-header-gradient: linear-gradient(
+        135deg, 
+        var(--color-primary), 
+        var(--color-secondary)
+    );
+    --button-bg: var(--color-primary);
+    --button-hover: var(--color-secondary);
+}
+
+/* Night theme */
+[data-theme="night"] {
+    --main-header-gradient: linear-gradient(
+        180deg, 
+        var(--color-smokey-black) 0%, 
+        var(--color-onyx) 40%, 
+        var(--color-onyx-70) 100%
+    );
+    --page-header-gradient: linear-gradient(
+        135deg,
+        var(--color-onyx), 
+        var(--color-folly), 
+        var(--color-selective-yellow));
+    --button-bg: var(--color-folly);
+    --button-hover: var(--color-fire-engine-red);
 }
 
 /* -------------------- Reset & Base -------------------- */
@@ -119,7 +162,8 @@ body {
     flex: 0 1 20%;
     align-self: flex-start;
     padding: var(--space-md);
-    background-color: var(--color-primary);
+    background: var(--main-header-gradient);
+    box-shadow: var(--shadow-sidebar);
     color: var(--color-white);
     min-height: 100vh;
     position: sticky;
@@ -127,13 +171,23 @@ body {
 
 nav a {
     display: block;
+    margin: var(--space-sm) 0;
+    font-size: var(--font-size-lg);
+    font-weight: 500;
     color: var(--color-white);
     text-decoration: none;
-    margin: var(--space-sm) 0;
+    transition: color 0.2s ease;
+}
+
+nav a + a {
+    border-top: 1px solid var(--color-white-10);
+    padding-top: var(--space-sm);
 }
 
 nav a:hover {
     color: var(--color-secondary);
+    transform: translateX(2px);
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 /* ---------------------- Layout ----------------------- */
@@ -179,7 +233,7 @@ section h2 {
     width: 100%;
     border-radius: 8px;
     box-shadow: var(--shadow-card-md);
-    background: linear-gradient(135deg,var(--color-onyx), var(--color-folly), var(--color-selective-yellow));
+    background: var(--page-header-gradient);
     padding: var(--space-xxl) var(--space-md);
     margin-bottom: var(--space-xl);
     gap: var(--space-sm);
@@ -259,7 +313,7 @@ section h2 {
 .button {
     display: inline-block;
     padding: var(--space-xs) var(--space-sm);
-    background-color: var(--color-primary);
+    background-color: var(--button-bg);
     color: var(--color-white);
     text-decoration: none;
     border-radius: 4px;
@@ -273,7 +327,7 @@ section h2 {
 .button:hover {
     transform: translateY(-1px);
     box-shadow: var(--shadow-card-sm);
-    background-color: var(--color-secondary);
+    background-color: var(--button-hover);
 }
 
 .button:active {
