@@ -182,10 +182,14 @@ button.sidebar-toggle {
     display: flex;
     flex-direction: row;
     padding: var(--space-xs);
+    border: none;
+    outline: none;
     background: none;
     align-items: center;  
-    gap: 0.5rem;
+    gap: var(--space-xs);
     cursor: pointer;
+    color: var(--color-white);
+    width: 100%;
 }
 
 /* Hide text when sidebar is collapsed */
@@ -211,6 +215,33 @@ button.sidebar-toggle {
     stroke-linecap: round;
     stroke-linejoin: round;
     fill: none;
+}
+
+/* ------------------ Theme Toggle Button ------------- */
+
+#theme-toggle {
+    display: flex;
+    margin: var(--space-sm) 0;
+    padding: var(--space-xs);
+    width: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-white-10);
+    border-radius: 12px;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    transition: all 0.25s ease;
+}
+
+#theme-toggle:hover {
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+    box-shadow: var(--shadow-card-sm);
+    transform: scale(1.05);
 }
 
 /* -------------------- Navigation -------------------- */
