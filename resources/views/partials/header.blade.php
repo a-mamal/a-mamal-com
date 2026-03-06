@@ -2,6 +2,7 @@
     <div class="logo">
         <img>
     </div>
+    <button id="theme-toggle">Switch Theme</button>
     <nav class="site-nav">
         <a href="{{ route('home') }}">Home</a>
         <a href="{{ route('projects') }}">Projects</a>
