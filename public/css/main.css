@@ -535,6 +535,15 @@ section h2 {
     gap: var(--space-xs);
 }
 
+.about-section p.card-meta a,
+.about-section p.card-meta a:visited {
+    text-decoration: none;
+}
+
+.about-section p.card-meta a:hover {
+    text-decoration: underline;
+}
+
 /* -------------------- Contact Page -------------------- */
 
 .contact-section {
