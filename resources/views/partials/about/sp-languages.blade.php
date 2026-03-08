@@ -1,8 +1,12 @@
 <section id="languages" class="about-section">
     <h2>Languages</h2>
     <ul>
-        <li>English – Fluent</li>
-        <li>Greek – Native</li>
-        <li>Spanish – Intermediate</li>
+        @forelse($languages as $language)
+            <li>
+                {{ $language->name }} - {{ $language->proficiency }}
+            </li>
+        @empty
+            <li>No languages listed.</li>
+        @endforelse
     </ul>
 </section>
