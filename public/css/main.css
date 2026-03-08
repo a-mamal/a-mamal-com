@@ -544,6 +544,18 @@ section h2 {
     text-decoration: underline;
 }
 
+.about-section ul {
+    display: flex;
+    flex-direction: column;
+    padding-left: var(--space-sm);
+    list-style:circle;
+    gap: var(--space-xs);
+}
+
+.about-section ul li {
+    color: var(--color-text-primary-70);
+}
+
 /* -------------------- Contact Page -------------------- */
 
 .contact-section {
