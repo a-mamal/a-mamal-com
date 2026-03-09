@@ -492,6 +492,18 @@ MAIL_TO_ADDRESS="hello@example.com"
 ```
 💡 Replace these values with your own mail server credentials.
 
+#### Matomo analytics Setup (Production)
+
+For the use of Matomo, environment variables are used in production.
+The .env.example has these variables empty while MATOMO_ENABLED is set to false.
+To use it for production, update the following values in your production .env file.
+
+```env
+MATOMO_ENABLED=true
+MATOMO_URL=https://your-matomo-url
+MATOMO_SITE_ID=your-matomo-site-id or 1 
+```
+
 ---
 
 ## Contributing
