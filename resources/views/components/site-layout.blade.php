@@ -34,12 +34,9 @@
         <script src="{{ asset('js/theme-switcher.js') }}" defer></script>
         <script src="{{ asset('js/sidebar.js') }}" defer></script>
 
-        {{-- Matomo JS Tracking Code (production only)  --}}
+        {{-- Matomo Tracking Code (production only)  --}}
         {{-- keep this immediately before the closing </head> tag --}}
-        @if(env('MATOMO_ENABLED', false))
-            <script src="{{ asset ('js/matomo.js') }}" defer> </script>
-        @endif
-
+        @include('partials.matomo')
     </head>
     <body>
         {{-- This navigation include is commented out for now --}}
