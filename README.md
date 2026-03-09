@@ -63,6 +63,10 @@ I hope they help build confidence to tackle something bigger next!
    - In progress
    - Related issues: [page: contact](https://github.com/a-mamal/a-mamal-com/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22page%3A%20contact%22)
 
+- 📊 **Analytics**
+    - Matomo tracking ✅
+    - Real-time tracking
+
 ---
 
 ## Tech Stack
