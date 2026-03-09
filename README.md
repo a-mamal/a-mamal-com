@@ -565,8 +565,23 @@ When your feature or fix is ready:
 ---
 
 ## Tooling & Acknowledgments
-- Deployment automated via GitHub Actions using
-  [SamKirkland/FTP-Deploy-Action](https://github.com/SamKirkland/FTP-Deploy-Action)
+
+### 🚀 Deployment
+- [GitHub Actions](https://github.com/features/actions)
+- [shivammathur/setup-php](https://github.com/shivammathur/setup-php) (PHP 8.4)
+- [FTP-Deploy-Action](https://github.com/SamKirkland/FTP-Deploy-Action)
+
+### 🛠️ Development  
+- [Laravel Herd](https://herd.laravel.com/) (local PHP + MariaDB)
+- [Laravel Breeze](https://laravel.com/docs/starter-kits#laravel-breeze) (auth scaffolding)
+- [Mailtrap](https://mailtrap.io/)
+- [DB Code](https://dbcode.io/) (VS Code DB extension - local MariaDB)
+- **Composer** + **npm** (dependencies)
+
+### 📊 Analytics
+- **Matomo** (privacy-first, self-hosted)
+
+
 
 ---
 
