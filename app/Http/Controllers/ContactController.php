@@ -4,13 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Models\Profile;
+use App\Models\User;
 
 class ContactController extends Controller
 {
-    public function index()
-    {
-        return view('pages.contact');
+    public function index() {   
+        // Load all profiles with links
+        $user = User::with('profiles.links')->first();
+
+        // Pick only the first profile  
+        $profile = $user?->profiles->first(); 
+
+        // Pass data to the view
+        return view('pages.contact', [
+            'user' => $user,
+            'profile' => $profile
+        ]);
     }
 
     public function sendContact(Request $request)
