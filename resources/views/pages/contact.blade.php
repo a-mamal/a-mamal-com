@@ -5,7 +5,11 @@
     :subtitle="'Reach out for collaborations, projects, or general inquiries.'"
 >
 
+    @include('partials.profile-links')
+
     <section class="contact-section">
+        
+
         @if(session('success'))
             <div class="contact-success">{{ session('success') }}</div>
         @endif

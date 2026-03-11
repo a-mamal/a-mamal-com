@@ -12,7 +12,6 @@ class AboutController extends Controller
     {   
         // Retrieve the first user and eagerly load related data needed for the About page
         $user = User::with(
-            'profiles.links' , 
             'profiles.degrees.organization',
             'profiles.spokenLanguages'
             )->first();

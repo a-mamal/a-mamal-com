@@ -13,23 +13,50 @@ class ProfileLinkSeeder extends Seeder
      */
     public function run(): void
     {
-        // Only seed in local environment
-        if (!app()->environment('local')) {
-            return;
-        }
 
-        // Get some existing profiles or create new ones
+        // Path to JSON file containing real profile links
+        $jsonFile = base_path('database/seeders/data/profile-links.json');
+
+        // Load links from JSON if file exists
+        $links = file_exists($jsonFile)
+            ? json_decode(file_get_contents($jsonFile), true) ?? []
+            : [];
+
+        // Get existing profiles or create some for local testing        
         $profiles = Profile::all();
-        if ($profiles->isEmpty()) {
+        if ($profiles->isEmpty() && app()->environment('local')) {
             $profiles = Profile::factory()->count(5)->create();
         }
 
-        // Seed 1–3 links per profile
-        foreach ($profiles as $profile) {
-            $linksCount = rand(1, 3);
-            ProfileLink::factory()->count($linksCount)->create([
-                'profile_id' => $profile->id,
-            ]);
+        // Seed the first profile only with real links from JSON
+        $firstProfile = $profiles->first();
+
+        if ($firstProfile) {
+            // Seed links from JSON
+            foreach ($links as $link) {
+                $firstProfile->links()->updateOrCreate(
+                    [
+                        'profile_id' => $firstProfile->id,
+                        'platform'   => $link['platform'],
+                    ],
+                    [
+                        'url' => $link['url'],
+                    ]
+                );
+            }
+        }
+
+        // Seed remaining profiles with random links (local only)
+        if (app()->environment('local')) {
+            foreach ($profiles->skip(1) as $profile) {
+                $linksCount = rand(1, 3);
+
+                ProfileLink::factory()
+                    ->count($linksCount)
+                    ->create([
+                        'profile_id' => $profile->id,
+                    ]);
+            }
         }
     }
 }

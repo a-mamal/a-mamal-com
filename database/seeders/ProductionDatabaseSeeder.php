@@ -24,7 +24,7 @@ class ProductionDatabaseSeeder extends Seeder
             ProfileSeeder::class,
             CertificateSeeder::class,
             DegreeSeeder::class,
-            ProductionProfileLinkSeeder::class,
+            ProfileLinkSeeder::class,
             ProjectSeeder::class,
             ProductionSpokenLanguageSeeder::class
         ]);
