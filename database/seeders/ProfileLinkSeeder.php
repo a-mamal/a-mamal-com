@@ -28,7 +28,7 @@ class ProfileLinkSeeder extends Seeder
             $profiles = Profile::factory()->count(5)->create();
         }
 
-        // Seed the first profile with real links from JSON
+        // Seed the first profile only with real links from JSON
         $firstProfile = $profiles->first();
 
         if ($firstProfile) {
@@ -43,13 +43,6 @@ class ProfileLinkSeeder extends Seeder
                         'url' => $link['url'],
                     ]
                 );
-            }
-
-            // Add extra fake links only in local for testing
-            if (app()->environment('local')) {
-                ProfileLink::factory()->count(2)->create([
-                    'profile_id' => $firstProfile->id,
-                ]);
             }
         }
 
