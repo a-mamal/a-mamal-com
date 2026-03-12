@@ -95,6 +95,10 @@
 
     --shadow-input: 0 0 0 2px var(--color-border-input-focus);
 
+    /* ------------------------ Text shadows ----------------------- */
+    --text-shadow-md-sb: 0 2px 4px var(--color-smokey-black);
+    --text-shadow-md-wh: 0 2px 4px var(--color-white);
+
     /* -------------------- Button default vars -------------------- */
     --button-bg: var(--color-primary);
     --button-hover: var(--color-secondary);
@@ -565,7 +569,29 @@ section h2 {
     background-color: var(--color-secondary-90);
 }
 
+.contact-section h2 {
+    color: var(--color-white);
+    text-shadow: var(--text-shadow-md-sb) ;
+}
+
+.contact-section p {
+    color: var(--color-smokey-black);
+    margin-bottom: var(--space-sm);
+}
+
+.contact-section ul li {
+    color: var(--color-smokey-black);
+    list-style: none;
+}
+
+.contact-section a {
+    color: var(--color-smokey-black);
+    text-shadow: var(--text-shadow-md-wh);
+    text-decoration: none;
+}
+
 .contact-section form {
+    margin-top: var(--space-lg);
     display: flex;
     flex-direction: column;
 }
