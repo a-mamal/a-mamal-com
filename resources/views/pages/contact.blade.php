@@ -71,7 +71,7 @@
                 <span class="contact-error">{{ $message }}</span>
             @enderror
 
-            <button type="submit" class="button-fire">Send Message</button>
+            <button type="submit" class="button">Send Message</button>
         </form>
 
     </section>
