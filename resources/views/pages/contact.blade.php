@@ -8,7 +8,23 @@
     @include('partials.profile-links')
 
     <section class="contact-section">
+
+                <h2>Get in touch!</h2>
+    
+        <ul class="contact-reasons space-y-1 mb-8">
+            <li>Do you have a project or opportunity?</li>
+            <li>Just want to say "hi"?</li>
+            <li>Got website suggestions or feedback?</li>
+        </ul>
         
+        <p>
+            I'd love to hear from you! I read every message.
+        </p>
+
+        <p>
+            You can send me a message on 
+            <a href="mailto:{{ $user->email }}">{{ $user->email }}</a> or use the form below.
+        </p>        
 
         @if(session('success'))
             <div class="contact-success">{{ session('success') }}</div>
