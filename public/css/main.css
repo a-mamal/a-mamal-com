@@ -83,7 +83,8 @@
     --color-warning:        var(--color-selective-yellow);
     --color-info:           var(--color-steel-blue);
 
-    /* Shadows */
+
+    /* ------------------------ Shadows ----------------------- */
 
     --shadow-sidebar: 2px 0 8px var(--color-onyx-70);
 
@@ -94,6 +95,12 @@
     --shadow-card-lg: 0 8px 24px var(--color-border-card);
 
     --shadow-input: 0 0 0 2px var(--color-border-input-focus);
+    
+    
+    /* ------------------------ Text shadows ----------------------- */
+    --text-shadow-md-sb: 0 2px 4px var(--color-smokey-black);
+    --text-shadow-md-wh: 0 2px 4px var(--color-white);
+
 
     /* -------------------- Button default vars -------------------- */
     --button-bg: var(--color-primary);
@@ -563,6 +570,27 @@ section h2 {
     border-radius: 8px;
     border: 1px solid var(--color-border-section);
     background-color: var(--color-secondary-90);
+}
+
+.contact-section h2 {
+    color: var(--color-white);
+    text-shadow: var(--text-shadow-md-sb) ;
+}
+
+.contact-section p {
+    color: var(--color-white);
+    margin-bottom: var(--space-sm);
+}
+
+.contact-section ul li {
+    color: var(--color-white);
+    list-style: none;
+}
+
+.contact-section a {
+    color: var(--color-smokey-black);
+    text-shadow: var(--text-shadow-md-wh);
+    text-decoration: none;
 }
 
 .contact-section form {
