@@ -644,3 +644,60 @@ section h2 {
     color: var(--color-error);
     margin-top: var(--space-sm);
 }
+
+/* -------------------- Profile Links -------------------- */
+
+.profile-links-section {
+    margin-top: var(--space-md);
+}
+
+.profile-links-section h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-sm);
+    color: var(--color-white);
+}
+
+.profile-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+}
+
+.profile-link {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 4px;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    text-decoration: none;
+
+    background-color: var(--button-bg);
+    color: var(--color-white);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background-color 0.2s ease;
+}
+
+.profile-link:hover {
+    transform: translateY(-1px);
+    background-color: var(--button-hover);
+    box-shadow: var(--shadow-card-sm);
+}
+
+.profile-link:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+.profile-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.profile-link-icon {
+    display: inline-flex;
+    align-items: center;
+}

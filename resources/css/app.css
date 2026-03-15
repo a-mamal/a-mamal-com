@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.profile-links-section {
+    margin-top: 2rem;
+}
+
+.profile-links-section h3 {
+    margin-bottom: 12px;
+}
+
+.profile-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.profile-link {
+    padding: 8px 14px;
+    border-radius: 6px;
+    background-color: #f3f4f6;
+    text-decoration: none;
+    color: #111;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.profile-link:hover {
+    background-color: #e5e7eb;
+}
+
+.profile-link:focus {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+}
