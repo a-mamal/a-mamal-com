@@ -8,17 +8,14 @@
 <section class="contact-section">
 
     <h2>Get in touch!</h2>
-
     <ul class="contact-reasons space-y-1 mb-8">
         <li>Do you have a project or opportunity?</li>
         <li>Just want to say "hi"?</li>
         <li>Got website suggestions or feedback?</li>
     </ul>
-
     <p>
         I'd love to hear from you! I read every message.
     </p>
-
     <p>
         You can send me a message on
         <a href="mailto:{{ $user->email }}">{{ $user->email }}</a> or use the form below.
@@ -43,13 +40,11 @@
             value="{{ old('name') }}"
             required
         >
-
         @error('name')
             <span id="name-error" class="contact-error">
                 {{ $message }}
             </span>
         @enderror
-
 
         {{-- Email --}}
         <label for="email">Email:</label>
@@ -61,13 +56,11 @@
             value="{{ old('email') }}"
             required
         >
-
         @error('email')
             <span class="contact-error">
                 {{ $message }}
             </span>
         @enderror
-
 
         {{-- Message --}}
         <label for="message">Your message:</label>
@@ -108,13 +101,13 @@
                 >
                     <span class="profile-link-icon">
                         @if($link->platform === 'github')
-                            <img src="{{ asset('images/GitHub_Invertocat_Black.svg') }}" alt="GitHub" width="18" height="18">
+                            <img src="{{ asset('images/svg/GitHub_Invertocat_Black.svg') }}" alt="GitHub" width="18" height="18">
                         @elseif($link->platform === 'linkedin')
-                            <img src="{{ asset('images/InBug-Black.png') }}" alt="LinkedIn" width="18" height="18">
+                            <img src="{{ asset('images/png/InBug-Black.png') }}" alt="LinkedIn" width="18" height="18">
                         @elseif($link->platform === 'fcc')
-                            <img src="{{ asset('images/fcc_primary_small.svg') }}" alt="FreeCodeCamp" width="18" height="18">
+                            <img src="{{ asset('images/svg/fcc_primary_small.svg') }}" alt="FreeCodeCamp" width="18" height="18">
                         @elseif($link->platform === 'links')
-                            <img src="{{ asset('images/link.svg') }}" alt="Link" width="18" height="18">
+                            <img src="{{ asset('images/svg/link.svg') }}" alt="Link" width="18" height="18">
                         @endif
                     </span>
                     <span class="profile-link-text">
