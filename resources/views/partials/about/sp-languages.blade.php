@@ -1,5 +1,5 @@
 <section id="languages" class="about-section">
-    <h2>Languages</h2>
+    <h3>Languages</h3>
     <ul>
         @forelse($languages as $language)
             <li>

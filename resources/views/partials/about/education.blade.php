@@ -1,16 +1,16 @@
 @if($degrees->isNotEmpty())
     <section id="education" class="about-section">
-        <h2>Education</h2>
+        <h3>Education</h3>
 
         @foreach($degrees as $degree)
             <article class="card education-card">
                 {{-- Degree title and optional field --}}
-                <h3 class="card-title">
+                <h4 class="card-title">
                     {{ $degree->title }}
                     @if($degree->field)
                         - {{ $degree->field }}
                     @endif
-                </h3>
+                </h4>
 
                 {{-- Organization --}}
                 <p class="card-meta">
