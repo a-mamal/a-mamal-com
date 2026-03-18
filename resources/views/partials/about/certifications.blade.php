@@ -1,5 +1,5 @@
 <section id="certifications" class="about-section">
-    <h2>Certifications</h2>
+    <h3>Certifications</h3>
 
     @forelse($profile->certificates as $cert)
 
@@ -10,7 +10,7 @@
                     alt="{{ $cert->name }} by {{ $cert->organization->name }}">
             @endif
 
-            <h3 class="card-title">{{ $cert->name }}</h3>
+            <h4 class="card-title">{{ $cert->name }}</h4>
 
             <p class="card-meta">
                 {{ $cert->organization->name }}

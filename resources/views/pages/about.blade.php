@@ -5,6 +5,7 @@
     :subtitle="'A brief overview of myself, my experience, and this website.'"
     >
     <section id="about-me" class="about-wrapper">
+        <h2> About me </h2>
         @include('partials.about.bio')
         @include('partials.about.education')
         @include('partials.about.experience')
