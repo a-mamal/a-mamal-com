@@ -15,6 +15,6 @@
 
     <section id="about-site" class="about-wrapper">
         <h2>About the Site</h2>
-        {{-- Subsections will go here later --}}
+        @include('partials.about.site-intro')
     </section>
 </x-site-layout>
