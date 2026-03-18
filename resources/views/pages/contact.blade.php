@@ -5,75 +5,119 @@
     :subtitle="'Reach out for collaborations, projects, or general inquiries.'"
 >
 
-    @include('partials.profile-links')
+<section class="contact-section">
 
-    <section class="contact-section">
+    <h2>Get in touch!</h2>
+    <ul class="contact-reasons space-y-1 mb-8">
+        <li>Do you have a project or opportunity?</li>
+        <li>Just want to say "hi"?</li>
+        <li>Got website suggestions or feedback?</li>
+    </ul>
+    <p>
+        I'd love to hear from you! I read every message.
+    </p>
+    <p>
+        You can send me a message on
+        <a href="mailto:{{ $user->email }}">{{ $user->email }}</a> or use the form below.
+    </p>
 
-                <h2>Get in touch!</h2>
-    
-        <ul class="contact-reasons space-y-1 mb-8">
-            <li>Do you have a project or opportunity?</li>
-            <li>Just want to say "hi"?</li>
-            <li>Got website suggestions or feedback?</li>
-        </ul>
-        
-        <p>
-            I'd love to hear from you! I read every message.
-        </p>
+    @if(session('success'))
+        <div class="contact-success">
+            {{ session('success') }}
+        </div>
+    @endif
 
-        <p>
-            You can send me a message on 
-            <a href="mailto:{{ $user->email }}">{{ $user->email }}</a> or use the form below.
-        </p>        
+    <form method="POST" action="{{ route('contact.send') }}">
+        @csrf
 
-        @if(session('success'))
-            <div class="contact-success">{{ session('success') }}</div>
-        @endif
+        {{-- Name --}}
+        <label for="name">Name:</label>
+        <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your Name"
+            value="{{ old('name') }}"
+            required
+        >
+        @error('name')
+            <span id="name-error" class="contact-error">
+                {{ $message }}
+            </span>
+        @enderror
 
-        <form method="POST" action="{{ route('contact.send') }}">
-            @csrf
+        {{-- Email --}}
+        <label for="email">Email:</label>
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="example@mail.com"
+            value="{{ old('email') }}"
+            required
+        >
+        @error('email')
+            <span class="contact-error">
+                {{ $message }}
+            </span>
+        @enderror
 
-            <label for="name">Name:</label>
-            <input 
-                type="text" 
-                id="name"
-                name="name" 
-                placeholder="Your Name" 
-                value="{{ old('name') }}" 
-                required>
+        {{-- Message --}}
+        <label for="message">Your message:</label>
+        <textarea
+            id="message"
+            name="message"
+            placeholder="Write your message here"
+            required
+        >{{ old('message') }}</textarea>
 
-            @error('name')
-                <span id="name-error" class="contact-error">{{ $message }}</span>
-            @enderror
+        @error('message')
+            <span class="contact-error">
+                {{ $message }}
+            </span>
+        @enderror
 
+        <button type="submit" class="button-fire">
+            Send Message
+        </button>
 
-            <label for="email">Email:</label>
-            <input 
-                type="email" 
-                id="email"
-                name="email" 
-                placeholder="example@mail.com" 
-                value="{{ old('email') }}" 
-                required>
+    </form>
 
-            @error('email')
-                <span class="contact-error">{{ $message }}</span>
-            @enderror
+</section>
+{{-- Profile Links Section --}}
+@if(isset($profile->links) && $profile->links->count())
+    <div class="profile-links-section">
 
-            <label for="message"> Your message: </label>
-            <textarea 
-                id="message"
-                name="message" 
-                placeholder="Write your message here" 
-                required>{{ old('message') }}</textarea>
+        <h3>Find me online</h3>
 
-            @error('message')
-                <span class="contact-error">{{ $message }}</span>
-            @enderror
+        <div class="profile-links">
+            @foreach($profile->links as $link)
+                <a
+                    href="{{ $link->url }}"
+                    class="profile-link"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="{{ $link->platform }} profile"
+                >
+                    <span class="profile-link-icon">
+                        @if($link->platform === 'github')
+                            <img src="{{ asset('images/svg/GitHub_Invertocat_Black.svg') }}" alt="GitHub" width="18" height="18">
+                        @elseif($link->platform === 'linkedin')
+                            <img src="{{ asset('images/png/InBug-Black.png') }}" alt="LinkedIn" width="18" height="18">
+                        @elseif($link->platform === 'fcc')
+                            <img src="{{ asset('images/svg/fcc_primary_small.svg') }}" alt="FreeCodeCamp" width="18" height="18">
+                        @elseif($link->platform === 'links')
+                            <img src="{{ asset('images/svg/link.svg') }}" alt="Link" width="18" height="18">
+                        @endif
+                    </span>
+                    <span class="profile-link-text">
+                        {{ ucfirst($link->platform) }}
+                    </span>
+                </a>
+            @endforeach
+        </div>
 
-            <button type="submit" class="button">Send Message</button>
-        </form>
-
-    </section>
+    </div>
+@endif
 
 </x-site-layout>
