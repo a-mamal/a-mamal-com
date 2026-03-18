@@ -1,8 +1,8 @@
 <x-site-layout 
     :title="'About | Mamalikidou Anastasia'"
-    :description="'Learn more about Anastasia Mamalikidou, a passionate full-stack web developer building responsive, accessible websites and applications.'"
-    :headerTitle="'About me'"
-    :subtitle="'A brief overview of my experience, education, skills, etc.'"
+    :description="'Learn more about Anastasia Mamalikidou and this website: my journey as a developer, my experience, and the purpose of this project.'"
+    :headerTitle="'About'"
+    :subtitle="'A brief overview of myself, my experience, and this website.'"
     >
     <section id="about-me" class="about-wrapper">
         @include('partials.about.bio')
