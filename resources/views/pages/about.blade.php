@@ -16,5 +16,6 @@
     <section id="about-site" class="about-wrapper">
         <h2>About the Site</h2>
         @include('partials.about.site-intro')
+        @include('partials.about.site-learning')
     </section>
 </x-site-layout>
