@@ -8,7 +8,4 @@
         But what if this time I didn't keep it to myself? Everything has a starting point, and this was one of them.
         I got my domain names, hosting, and just started.
     </p>
-    <p class="highlight">
-        Everything and everyone is evolving. So why keep the current version a secret?
-    </p>
 </section>
