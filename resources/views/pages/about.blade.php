@@ -18,5 +18,6 @@
         @include('partials.about.site-intro')
         @include('partials.about.site-learning')
         @include('partials.about.site-collaboration')
+        @include('partials.about.site-community')
     </section>
 </x-site-layout>
