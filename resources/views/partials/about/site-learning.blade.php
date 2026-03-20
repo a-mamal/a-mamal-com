@@ -9,16 +9,20 @@
 
     <p>
         I clearly remember starting out, learning about GitHub, conventional commits, etc. 
-        I'm still learning and I am far from perfect but really, who and what is?
-        Everything and everyone is evolving. So why keep the current version a secret? 
-    </p>
+        I'm still learning and I am far from perfect
+    </p> 
+    <p class="question">But really, who and what is?</p>
+    <p class="highlight">Everything and everyone is evolving. So why keep the current version a secret? </p>
+        
+    
 
     <p>
         Well, that's great to say but, it's just words. 
-        Have I really learned to feel exposed? To a level. 
-        Could I step it up? Of course I could. 
-        Could I do something for others as well? Of course.
     </p>
+
+    <p class="question">Have I really learned to feel exposed? To a level.</p>
+    <p class="question">Could I step it up? Of course I could.</p>
+    <p class="question">Could I do something for others as well? Of course.</p>
 
     <p>
         Getting this website open and deployed from the first moments helped despite the anxiety of the unknown.
