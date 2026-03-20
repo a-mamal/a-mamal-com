@@ -539,7 +539,37 @@ section h2 {
     border: 1px solid var(--color-border-section);
     background-color: var(--color-surface-30);
     box-shadow: var(--shadow-card-sm);
-    gap: var(--space-xs);
+    gap: var(--space-sm);
+    transition: 
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.about-section:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-md);
+    border-color: var(--color-border-card);
+}
+
+
+.about-section h3 {
+    font-size: var(--font-size-lg);
+    color: var(--color-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.about-section p {
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-lg);
+    color: var(--color-text-primary);
+}
+
+.about-section p.highlight {
+    font-style: italic;
+    color: var(--color-text-primary);
+    border-left: 3px solid var(--color-secondary);
+    padding-left: var(--space-sm);
 }
 
 .about-section p.card-meta a,
