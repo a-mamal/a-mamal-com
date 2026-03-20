@@ -7,6 +7,9 @@
     <p>
         I do not wish to associate with racism, sexism, homophobia, ableism, or other forms of discrimination.
         That applies to all of my work.
+    </p>
+    <p class="highlight">
         While learning (and unlearning) is important, the goal is to remain open, do our best to educate ourselves, and move away from behaviours that are harmful.
     </p>
+    
 </section>
