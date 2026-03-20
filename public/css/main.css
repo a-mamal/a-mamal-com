@@ -572,6 +572,11 @@ section h2 {
     padding-left: var(--space-sm);
 }
 
+.about-section p.question {
+    font-style: italic;
+    color: var(--color-text-primary);
+}
+
 .about-section p.card-meta a,
 .about-section p.card-meta a:visited {
     text-decoration: none;
