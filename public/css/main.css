@@ -107,7 +107,7 @@
     --button-hover: var(--color-secondary);
 
     /* -------------------- Header default vars -------------------- */
-    --main-header-gradient: linear-gradient(180deg, var(--color-primary),var(--color-text-primary-70) 95%);
+    --main-header-gradient: linear-gradient(180deg, var(--color-primary),var(--color-secondary) 95%);
     --page-header-gradient: linear-gradient(135deg, var(--color-primary),var(--color-secondary));
 
 }
@@ -119,7 +119,7 @@
     --main-header-gradient: linear-gradient(
         180deg, 
         var(--color-primary), 
-        var(--color-text-primary-70) 95%
+        var(--color-secondary) 95%
     );
     --page-header-gradient: linear-gradient(
         135deg, 
