@@ -18,7 +18,11 @@
     </p>
     <p>
         You can send me a message on
-        <a href="mailto:{{ $user->email }}">{{ $user->email }}</a> or use the form below.
+        <a  href="mailto:{{ config('mail.to') }}" 
+            aria-label="Send an email to {{ config('mail.to') }}">
+            {{ config('mail.to') }}
+        </a> 
+        or use the form below.
     </p>
 
     @if(session('success'))
