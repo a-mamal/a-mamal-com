@@ -31,7 +31,7 @@ class ContactController extends Controller
         ]);
 
         Mail::raw($validated['message'], function ($message) use ($validated) {
-            $message->to(env('MAIL_TO_ADDRESS'))
+            $message->to(config('mail.to'))
                     ->subject("Message from: {$validated['name']}")
                     ->replyTo($validated['email']);
         });
