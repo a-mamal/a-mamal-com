@@ -63,8 +63,9 @@ I hope they help build confidence to tackle something bigger next!
    - Related issues: [page: projects](https://github.com/a-mamal/a-mamal-com/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22page%3A%20projects%22)
 
 - 📖 About page
-   - Basic info ✅ 
-   - In progress 
+   - Structured sections for personal background and project context  
+   - Core content implemented ✅
+   - In progress (content & UX improvements)
    - Related issues: [page: about](https://github.com/a-mamal/a-mamal-com/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22page%3A%20about%22)
    
 - ✉️ Contact page
