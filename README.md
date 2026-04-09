@@ -70,7 +70,8 @@ I hope they help build confidence to tackle something bigger next!
    
 - ✉️ Contact page
    - Functional contact form ✅ 
-   - In progress
+   - Platform links (e.g., GitHub, LinkedIn) displayed ✅
+   - In progress (validation, UI/UX improvements, CAPTCHA, etc.)
    - Related issues: [page: contact](https://github.com/a-mamal/a-mamal-com/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22page%3A%20contact%22)
 
 - 📊 **Analytics**
