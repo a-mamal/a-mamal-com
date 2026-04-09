@@ -78,6 +78,9 @@ I hope they help build confidence to tackle something bigger next!
     - Matomo tracking ✅
     - Real-time tracking
 
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
+
 ---
 
 ## Tech Stack
@@ -104,6 +107,9 @@ I hope they help build confidence to tackle something bigger next!
 - 🌱 Evolve the site alongside my skills
 - 🎯 Showcase a personal brand that’s both professional and playful, reflecting my belief that learning and growing is more effective when it’s fun!
 - 🤝 Make room for fellow learners by offering beginner-friendly, learning-oriented issues
+
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -147,6 +153,8 @@ Detailed descriptions follow below.
    - Local: seeds main admin user (from `.env`) + 5 random demo users  
    - Production: seeds only the main admin user (from `.env`)
 
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
 
 ### Table: `profiles`
 
@@ -172,6 +180,8 @@ Detailed descriptions follow below.
 - `ProfileFactory` exists  
 - `ProfileSeeder` exists
 
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
 
 
 ### Table: `profile_links`
@@ -197,6 +207,7 @@ Detailed descriptions follow below.
 
 > Note: The seeder only runs in local environments to avoid polluting production data.  
 
+[⬆ Back to Table of Contents](#table-of-contents)
 
 
 ### Table: `projects`
@@ -229,6 +240,9 @@ Detailed descriptions follow below.
 
 > Note: Each project may have highlights and URLs for demo or GitHub, which are useful for showcasing a portfolio. The `status` field allows for draft projects or published projects for display. Highlights are stored as JSON (longtext) for flexibility.
 
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
+
 
 ### Table: `organizations`
 
@@ -260,6 +274,9 @@ To simplify and future-proof the schema, the table was renamed to `organizations
 
 > **Note:** This decision was made as part of the `epic` [feat(experiences): implement experiences linked to organizations #47](https://github.com/a-mamal/a-mamal-com/issues/47), with the actual change applied in the first sub-issue [#48](https://github.com/a-mamal/a-mamal-com/issues/48).
 
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
+
 
 ### Table: `degrees`
 
@@ -286,6 +303,8 @@ To simplify and future-proof the schema, the table was renamed to `organizations
 - `DegreeFactory` exists  
 - `DegreeSeeder` exists
 
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
 
 
 ### Table: `certificates`
@@ -315,6 +334,9 @@ To simplify and future-proof the schema, the table was renamed to `organizations
 - `CertificateSeeder` exists but needs to be updated (see [Issue #56](https://github.com/a-mamal/a-mamal-com/issues/56))
 
 
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
+
 
 ### Table: `spoken_languages`
 
@@ -335,6 +357,8 @@ To simplify and future-proof the schema, the table was renamed to `organizations
 **Seeder / Factory:**  
 - `SpokenLanguageFactory` exists  
 - `SpokenLanguageSeeder` exists but is currently empty
+
+[⬆ Back to Table of Contents](#table-of-contents)
 
 
 ### Table: `experiences`
@@ -372,7 +396,8 @@ This table was added to track user experiences such as jobs, internships, or vol
 
 > **Note:** Part of the epic [feat(experiences): implement experiences linked to organizations #47](https://github.com/a-mamal/a-mamal-com/issues/47), with the actual migration in sub-issue [#49](https://github.com/a-mamal/a-mamal-com/issues/49).
 
-
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
 
 
 > **Note:**  
@@ -394,7 +419,10 @@ This table was added to track user experiences such as jobs, internships, or vol
 | Responsive Design       | Refined layouts for mobile, tablet, and desktop screens                            |
 | Dark/Light Mode         | Smooth toggle between themes with persistence                                      |
 | Interactive Elements    | Animations and UI enhancements to make the site engaging                           |
-                          
+
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
+
 ---
 
 ## Setup
@@ -515,6 +543,9 @@ MATOMO_URL=https://your-matomo-url
 MATOMO_SITE_ID=your-matomo-site-id or 1 
 ```
 
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
+
 ---
 
 ## Contributing
@@ -555,6 +586,9 @@ When your feature or fix is ready:
 - Keep things consistent with the rest of the project.
 - Don’t worry if it’s not perfect. Feedback is part of the process!
 
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
+
 ---
 
 ## Deployment
@@ -583,6 +617,8 @@ When your feature or fix is ready:
 ### 📊 Analytics
 - **Matomo** (privacy-first, self-hosted)
 
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
 
 
 ---
@@ -613,3 +649,5 @@ Use it as inspiration, don’t copy it blindly for your own site 😉
 
 > ⚠️ This site is a work-in-progress. Features and content may change as I continue building it.
 
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
