@@ -54,7 +54,7 @@ I hope they help build confidence to tackle something bigger next!
 
 - 🏠 Homepage 
    - Basic layout ✅ 
-   - In progress 
+   - In progress (e.g., add featured projects)
    - Related issues: [page: home](https://github.com/a-mamal/a-mamal-com/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22page%3A%20home%22)
 
 - 🖼️ Project page 
@@ -63,18 +63,23 @@ I hope they help build confidence to tackle something bigger next!
    - Related issues: [page: projects](https://github.com/a-mamal/a-mamal-com/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22page%3A%20projects%22)
 
 - 📖 About page
-   - Basic info ✅ 
-   - In progress 
+   - Structured sections for personal background and project context  
+   - Core content implemented ✅
+   - In progress (content & UX improvements)
    - Related issues: [page: about](https://github.com/a-mamal/a-mamal-com/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22page%3A%20about%22)
    
 - ✉️ Contact page
    - Functional contact form ✅ 
-   - In progress
+   - Platform links (e.g., GitHub, LinkedIn) displayed ✅
+   - In progress (validation, UI/UX improvements, CAPTCHA, etc.)
    - Related issues: [page: contact](https://github.com/a-mamal/a-mamal-com/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22page%3A%20contact%22)
 
 - 📊 **Analytics**
     - Matomo tracking ✅
     - Real-time tracking
+
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -103,6 +108,9 @@ I hope they help build confidence to tackle something bigger next!
 - 🎯 Showcase a personal brand that’s both professional and playful, reflecting my belief that learning and growing is more effective when it’s fun!
 - 🤝 Make room for fellow learners by offering beginner-friendly, learning-oriented issues
 
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
+
 ---
 
 ## Database
@@ -125,8 +133,8 @@ Detailed descriptions follow below.
 
 ### Table: `users`
 
-| Column              | Type         | Nullable | Notes                                   |
-|--------------------|---------------|----------|-----------------------------------------|
+| Column             | Type          | Nullable | Notes                                   |
+|--------------------|---------------|:--------:|-----------------------------------------|
 | `id`               | bigint        | No       | Primary Key, auto-increment             |
 | `name`             | varchar(255)  | No       | User’s full name                        |
 | `email`            | varchar(255)  | No       | Unique, used for authentication         |
@@ -145,11 +153,13 @@ Detailed descriptions follow below.
    - Local: seeds main admin user (from `.env`) + 5 random demo users  
    - Production: seeds only the main admin user (from `.env`)
 
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
 
 ### Table: `profiles`
 
-| Column         | Type         | Nullable | Notes                                     |
-|---------------|--------------|----------|--------------------------------------------|
+| Column        | Type         | Nullable | Notes                                     |
+|---------------|--------------|:--------:|--------------------------------------------|
 | `id`          | bigint       | No       | Primary key                                |
 | `user_id`     | bigint       | No       | Foreign key → users.id                     |
 | `display_name`| varchar(255) | No       | Public-facing name                         |
@@ -170,12 +180,14 @@ Detailed descriptions follow below.
 - `ProfileFactory` exists  
 - `ProfileSeeder` exists
 
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
 
 
 ### Table: `profile_links`
 
-| Column       | Type         | Nullable | Notes                                                      |
-|-------------|--------------|----------|------------------------------------------------------------|
+| Column      | Type         | Nullable | Notes                                                      |
+|-------------|--------------|:--------:|------------------------------------------------------------|
 | `id`        | bigint       | No       | Primary key                                                |
 | `profile_id`| bigint       | No       | Foreign key → `profiles.id`, cascade on delete            |
 | `platform`  | enum         | No       | Platform type (`codepen`, `freecodecamp`, `github`, `hackthebox`, `leetcode`, `linkedin`, `website`, `other`). Defaults to `other`. |
@@ -195,12 +207,13 @@ Detailed descriptions follow below.
 
 > Note: The seeder only runs in local environments to avoid polluting production data.  
 
+[⬆ Back to Table of Contents](#table-of-contents)
 
 
 ### Table: `projects`
 
 | Column         | Type          | Nullable | Notes                                                    |
-|----------------|---------------|----------|----------------------------------------------------------|
+|----------------|---------------|:--------:|----------------------------------------------------------|
 | `id`           | bigint        | No       | Primary key                                              |
 | `profile_id`   | bigint        |No        | Foreign key → profiles.id, owner of the project          |
 | `title`        | varchar(255)  | No       | Name or title of the project                             |
@@ -227,11 +240,14 @@ Detailed descriptions follow below.
 
 > Note: Each project may have highlights and URLs for demo or GitHub, which are useful for showcasing a portfolio. The `status` field allows for draft projects or published projects for display. Highlights are stored as JSON (longtext) for flexibility.
 
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
+
 
 ### Table: `organizations`
 
 | Column         | Type         | Nullable | Notes                                  |
-|----------------|--------------|----------|----------------------------------------|
+|----------------|--------------|:--------:|----------------------------------------|
 | `id`           | bigint       | No       | Primary key                            |
 | `name`         | varchar(255) | No       | Name of the issuing organization       |
 | `type`         | varchar(255) | No       | Type of organization, e.g., company, platform|
@@ -258,11 +274,14 @@ To simplify and future-proof the schema, the table was renamed to `organizations
 
 > **Note:** This decision was made as part of the `epic` [feat(experiences): implement experiences linked to organizations #47](https://github.com/a-mamal/a-mamal-com/issues/47), with the actual change applied in the first sub-issue [#48](https://github.com/a-mamal/a-mamal-com/issues/48).
 
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
+
 
 ### Table: `degrees`
 
 | Column            | Type         | Nullable | Notes                                     |
-|-------------------|--------------|----------|-------------------------------------------|
+|-------------------|--------------|:--------:|-------------------------------------------|
 | `id`              | bigint       | No       | Primary key                               |
 | `profile_id`      | bigint       | No       | Foreign key → profiles.id                 |
 | `organization_id` | bigint       | No       | Foreign key → organizations.id            |
@@ -284,24 +303,26 @@ To simplify and future-proof the schema, the table was renamed to `organizations
 - `DegreeFactory` exists  
 - `DegreeSeeder` exists
 
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
 
 
 ### Table: `certificates`
 
 | Column               | Type         | Nullable | Notes                                          |
-|----------------------|--------------|----------|------------------------------------------------|
+|----------------------|--------------|:--------:|------------------------------------------------|
 | `id`                 | bigint       | No       | Primary key                                    |
 | `profile_id`         | bigint       | No       | Foreign key → profiles.id                      |
 | `organization_id`    | bigint       | No       | Foreign key → organizations.id                 |
 | `name`               | varchar(255) | No       | Name of the certificate                        |
 | `description`        | text         | Yes      | Optional description of the certificate        |
 | `date_awarded`       | date         | No       | When the certificate was issued                |
-| `expiration_date`    | date       | Yes      | Expiry date if applicable                        |
-| `credential_link`    | varchar(255)| Yes      | Optional URL to verify the certificate          |
+| `expiration_date`    | date         | Yes      | Expiry date if applicable                      |
+| `credential_link`    | varchar(255) | Yes      | Optional URL to verify the certificate         |
 | `image`              | varchar(255) | Yes      | Optional certificate image                     |
 | `created_at`         | timestamp    | Yes      | Laravel timestamp                              |
 | `updated_at`         | timestamp    | Yes      | Laravel timestamp                              |
-| `spoken_language_id` | bigint   | Yes      | Optional foreign key → spoken_languages.id         |
+| `spoken_language_id` | bigint       | Yes      | Optional foreign key → spoken_languages.id         |
 
 **Relationships:**  
 - A certificate belongs to one profile  
@@ -313,11 +334,14 @@ To simplify and future-proof the schema, the table was renamed to `organizations
 - `CertificateSeeder` exists but needs to be updated (see [Issue #56](https://github.com/a-mamal/a-mamal-com/issues/56))
 
 
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
+
 
 ### Table: `spoken_languages`
 
 | Column        | Type         | Nullable | Notes                                         |
-|---------------|--------------|----------|-----------------------------------------------|
+|---------------|--------------|:--------:|-----------------------------------------------|
 | `id`          | bigint       | No       | Primary key                                   |
 | `profile_id`  | bigint       | No       | Foreign key → profiles.id                    |
 | `name`        | varchar(255) | No       | Language name (e.g. English, Greek)           |
@@ -334,11 +358,13 @@ To simplify and future-proof the schema, the table was renamed to `organizations
 - `SpokenLanguageFactory` exists  
 - `SpokenLanguageSeeder` exists but is currently empty
 
+[⬆ Back to Table of Contents](#table-of-contents)
+
 
 ### Table: `experiences`
 
 | Column             | Type                 | Nullable | Notes                                                     |
-|--------------------|----------------------|----------|-----------------------------------------------------------|
+|--------------------|----------------------|:--------:|-----------------------------------------------------------|
 | `id`               | bigint               | No       | Primary key                                               |
 | `profile_id`       | bigint               | No       | Foreign key → profiles.id, cascade on delete              |
 | `organization_id`  | bigint               | No       | Foreign key → organizations.id, cascade on delete         |
@@ -370,7 +396,8 @@ This table was added to track user experiences such as jobs, internships, or vol
 
 > **Note:** Part of the epic [feat(experiences): implement experiences linked to organizations #47](https://github.com/a-mamal/a-mamal-com/issues/47), with the actual migration in sub-issue [#49](https://github.com/a-mamal/a-mamal-com/issues/49).
 
-
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
 
 
 > **Note:**  
@@ -392,7 +419,10 @@ This table was added to track user experiences such as jobs, internships, or vol
 | Responsive Design       | Refined layouts for mobile, tablet, and desktop screens                            |
 | Dark/Light Mode         | Smooth toggle between themes with persistence                                      |
 | Interactive Elements    | Animations and UI enhancements to make the site engaging                           |
-                          
+
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
+
 ---
 
 ## Setup
@@ -513,6 +543,9 @@ MATOMO_URL=https://your-matomo-url
 MATOMO_SITE_ID=your-matomo-site-id or 1 
 ```
 
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
+
 ---
 
 ## Contributing
@@ -553,6 +586,9 @@ When your feature or fix is ready:
 - Keep things consistent with the rest of the project.
 - Don’t worry if it’s not perfect. Feedback is part of the process!
 
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
+
 ---
 
 ## Deployment
@@ -581,6 +617,8 @@ When your feature or fix is ready:
 ### 📊 Analytics
 - **Matomo** (privacy-first, self-hosted)
 
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
 
 
 ---
@@ -611,3 +649,5 @@ Use it as inspiration, don’t copy it blindly for your own site 😉
 
 > ⚠️ This site is a work-in-progress. Features and content may change as I continue building it.
 
+<br>
+[⬆ Back to Table of Contents](#table-of-contents)
