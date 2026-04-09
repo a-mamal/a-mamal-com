@@ -133,8 +133,8 @@ Detailed descriptions follow below.
 
 ### Table: `users`
 
-| Column              | Type         | Nullable | Notes                                   |
-|--------------------|---------------|----------|-----------------------------------------|
+| Column             | Type          | Nullable | Notes                                   |
+|--------------------|---------------|:--------:|-----------------------------------------|
 | `id`               | bigint        | No       | Primary Key, auto-increment             |
 | `name`             | varchar(255)  | No       | User’s full name                        |
 | `email`            | varchar(255)  | No       | Unique, used for authentication         |
@@ -158,8 +158,8 @@ Detailed descriptions follow below.
 
 ### Table: `profiles`
 
-| Column         | Type         | Nullable | Notes                                     |
-|---------------|--------------|----------|--------------------------------------------|
+| Column        | Type         | Nullable | Notes                                     |
+|---------------|--------------|:--------:|--------------------------------------------|
 | `id`          | bigint       | No       | Primary key                                |
 | `user_id`     | bigint       | No       | Foreign key → users.id                     |
 | `display_name`| varchar(255) | No       | Public-facing name                         |
@@ -186,8 +186,8 @@ Detailed descriptions follow below.
 
 ### Table: `profile_links`
 
-| Column       | Type         | Nullable | Notes                                                      |
-|-------------|--------------|----------|------------------------------------------------------------|
+| Column      | Type         | Nullable | Notes                                                      |
+|-------------|--------------|:--------:|------------------------------------------------------------|
 | `id`        | bigint       | No       | Primary key                                                |
 | `profile_id`| bigint       | No       | Foreign key → `profiles.id`, cascade on delete            |
 | `platform`  | enum         | No       | Platform type (`codepen`, `freecodecamp`, `github`, `hackthebox`, `leetcode`, `linkedin`, `website`, `other`). Defaults to `other`. |
@@ -213,7 +213,7 @@ Detailed descriptions follow below.
 ### Table: `projects`
 
 | Column         | Type          | Nullable | Notes                                                    |
-|----------------|---------------|----------|----------------------------------------------------------|
+|----------------|---------------|:--------:|----------------------------------------------------------|
 | `id`           | bigint        | No       | Primary key                                              |
 | `profile_id`   | bigint        |No        | Foreign key → profiles.id, owner of the project          |
 | `title`        | varchar(255)  | No       | Name or title of the project                             |
@@ -247,7 +247,7 @@ Detailed descriptions follow below.
 ### Table: `organizations`
 
 | Column         | Type         | Nullable | Notes                                  |
-|----------------|--------------|----------|----------------------------------------|
+|----------------|--------------|:--------:|----------------------------------------|
 | `id`           | bigint       | No       | Primary key                            |
 | `name`         | varchar(255) | No       | Name of the issuing organization       |
 | `type`         | varchar(255) | No       | Type of organization, e.g., company, platform|
@@ -281,7 +281,7 @@ To simplify and future-proof the schema, the table was renamed to `organizations
 ### Table: `degrees`
 
 | Column            | Type         | Nullable | Notes                                     |
-|-------------------|--------------|----------|-------------------------------------------|
+|-------------------|--------------|:--------:|-------------------------------------------|
 | `id`              | bigint       | No       | Primary key                               |
 | `profile_id`      | bigint       | No       | Foreign key → profiles.id                 |
 | `organization_id` | bigint       | No       | Foreign key → organizations.id            |
@@ -310,19 +310,19 @@ To simplify and future-proof the schema, the table was renamed to `organizations
 ### Table: `certificates`
 
 | Column               | Type         | Nullable | Notes                                          |
-|----------------------|--------------|----------|------------------------------------------------|
+|----------------------|--------------|:--------:|------------------------------------------------|
 | `id`                 | bigint       | No       | Primary key                                    |
 | `profile_id`         | bigint       | No       | Foreign key → profiles.id                      |
 | `organization_id`    | bigint       | No       | Foreign key → organizations.id                 |
 | `name`               | varchar(255) | No       | Name of the certificate                        |
 | `description`        | text         | Yes      | Optional description of the certificate        |
 | `date_awarded`       | date         | No       | When the certificate was issued                |
-| `expiration_date`    | date       | Yes      | Expiry date if applicable                        |
-| `credential_link`    | varchar(255)| Yes      | Optional URL to verify the certificate          |
+| `expiration_date`    | date         | Yes      | Expiry date if applicable                      |
+| `credential_link`    | varchar(255) | Yes      | Optional URL to verify the certificate         |
 | `image`              | varchar(255) | Yes      | Optional certificate image                     |
 | `created_at`         | timestamp    | Yes      | Laravel timestamp                              |
 | `updated_at`         | timestamp    | Yes      | Laravel timestamp                              |
-| `spoken_language_id` | bigint   | Yes      | Optional foreign key → spoken_languages.id         |
+| `spoken_language_id` | bigint       | Yes      | Optional foreign key → spoken_languages.id         |
 
 **Relationships:**  
 - A certificate belongs to one profile  
@@ -341,7 +341,7 @@ To simplify and future-proof the schema, the table was renamed to `organizations
 ### Table: `spoken_languages`
 
 | Column        | Type         | Nullable | Notes                                         |
-|---------------|--------------|----------|-----------------------------------------------|
+|---------------|--------------|:--------:|-----------------------------------------------|
 | `id`          | bigint       | No       | Primary key                                   |
 | `profile_id`  | bigint       | No       | Foreign key → profiles.id                    |
 | `name`        | varchar(255) | No       | Language name (e.g. English, Greek)           |
@@ -364,7 +364,7 @@ To simplify and future-proof the schema, the table was renamed to `organizations
 ### Table: `experiences`
 
 | Column             | Type                 | Nullable | Notes                                                     |
-|--------------------|----------------------|----------|-----------------------------------------------------------|
+|--------------------|----------------------|:--------:|-----------------------------------------------------------|
 | `id`               | bigint               | No       | Primary key                                               |
 | `profile_id`       | bigint               | No       | Foreign key → profiles.id, cascade on delete              |
 | `organization_id`  | bigint               | No       | Foreign key → organizations.id, cascade on delete         |
