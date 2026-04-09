@@ -54,7 +54,7 @@ I hope they help build confidence to tackle something bigger next!
 
 - 🏠 Homepage 
    - Basic layout ✅ 
-   - In progress 
+   - In progress (e.g., add featured projects)
    - Related issues: [page: home](https://github.com/a-mamal/a-mamal-com/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22page%3A%20home%22)
 
 - 🖼️ Project page 
