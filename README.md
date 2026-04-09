@@ -79,7 +79,7 @@ I hope they help build confidence to tackle something bigger next!
     - Real-time tracking
 
 <br>
-[⬆ Back to Table of Contents](#table-of-contents)
+[:arrow_up: Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -109,7 +109,7 @@ I hope they help build confidence to tackle something bigger next!
 - 🤝 Make room for fellow learners by offering beginner-friendly, learning-oriented issues
 
 <br>
-[⬆ Back to Table of Contents](#table-of-contents)
+[:arrow_up: Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -154,7 +154,7 @@ Detailed descriptions follow below.
    - Production: seeds only the main admin user (from `.env`)
 
 <br>
-[⬆ Back to Table of Contents](#table-of-contents)
+[:arrow_up: Back to Table of Contents](#table-of-contents)
 
 ### Table: `profiles`
 
@@ -181,7 +181,7 @@ Detailed descriptions follow below.
 - `ProfileSeeder` exists
 
 <br>
-[⬆ Back to Table of Contents](#table-of-contents)
+[:arrow_up: Back to Table of Contents](#table-of-contents)
 
 
 ### Table: `profile_links`
@@ -207,7 +207,7 @@ Detailed descriptions follow below.
 
 > Note: The seeder only runs in local environments to avoid polluting production data.  
 
-[⬆ Back to Table of Contents](#table-of-contents)
+[:arrow_up: Back to Table of Contents](#table-of-contents)
 
 
 ### Table: `projects`
@@ -241,7 +241,7 @@ Detailed descriptions follow below.
 > Note: Each project may have highlights and URLs for demo or GitHub, which are useful for showcasing a portfolio. The `status` field allows for draft projects or published projects for display. Highlights are stored as JSON (longtext) for flexibility.
 
 <br>
-[⬆ Back to Table of Contents](#table-of-contents)
+[:arrow_up: Back to Table of Contents](#table-of-contents)
 
 
 ### Table: `organizations`
@@ -275,7 +275,7 @@ To simplify and future-proof the schema, the table was renamed to `organizations
 > **Note:** This decision was made as part of the `epic` [feat(experiences): implement experiences linked to organizations #47](https://github.com/a-mamal/a-mamal-com/issues/47), with the actual change applied in the first sub-issue [#48](https://github.com/a-mamal/a-mamal-com/issues/48).
 
 <br>
-[⬆ Back to Table of Contents](#table-of-contents)
+[:arrow_up: Back to Table of Contents](#table-of-contents)
 
 
 ### Table: `degrees`
@@ -304,7 +304,7 @@ To simplify and future-proof the schema, the table was renamed to `organizations
 - `DegreeSeeder` exists
 
 <br>
-[⬆ Back to Table of Contents](#table-of-contents)
+[:arrow_up: Back to Table of Contents](#table-of-contents)
 
 
 ### Table: `certificates`
@@ -335,7 +335,7 @@ To simplify and future-proof the schema, the table was renamed to `organizations
 
 
 <br>
-[⬆ Back to Table of Contents](#table-of-contents)
+[:arrow_up: Back to Table of Contents](#table-of-contents)
 
 
 ### Table: `spoken_languages`
@@ -358,7 +358,7 @@ To simplify and future-proof the schema, the table was renamed to `organizations
 - `SpokenLanguageFactory` exists  
 - `SpokenLanguageSeeder` exists but is currently empty
 
-[⬆ Back to Table of Contents](#table-of-contents)
+[:arrow_up: Back to Table of Contents](#table-of-contents)
 
 
 ### Table: `experiences`
@@ -397,7 +397,7 @@ This table was added to track user experiences such as jobs, internships, or vol
 > **Note:** Part of the epic [feat(experiences): implement experiences linked to organizations #47](https://github.com/a-mamal/a-mamal-com/issues/47), with the actual migration in sub-issue [#49](https://github.com/a-mamal/a-mamal-com/issues/49).
 
 <br>
-[⬆ Back to Table of Contents](#table-of-contents)
+[:arrow_up: Back to Table of Contents](#table-of-contents)
 
 
 > **Note:**  
@@ -421,7 +421,7 @@ This table was added to track user experiences such as jobs, internships, or vol
 | Interactive Elements    | Animations and UI enhancements to make the site engaging                           |
 
 <br>
-[⬆ Back to Table of Contents](#table-of-contents)
+[:arrow_up: Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -544,7 +544,7 @@ MATOMO_SITE_ID=your-matomo-site-id or 1
 ```
 
 <br>
-[⬆ Back to Table of Contents](#table-of-contents)
+[:arrow_up: Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -587,7 +587,7 @@ When your feature or fix is ready:
 - Don’t worry if it’s not perfect. Feedback is part of the process!
 
 <br>
-[⬆ Back to Table of Contents](#table-of-contents)
+[:arrow_up: Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -618,7 +618,7 @@ When your feature or fix is ready:
 - **Matomo** (privacy-first, self-hosted)
 
 <br>
-[⬆ Back to Table of Contents](#table-of-contents)
+[:arrow_up: Back to Table of Contents](#table-of-contents)
 
 
 ---
@@ -650,4 +650,4 @@ Use it as inspiration, don’t copy it blindly for your own site 😉
 > ⚠️ This site is a work-in-progress. Features and content may change as I continue building it.
 
 <br>
-[⬆ Back to Table of Contents](#table-of-contents)
+[:arrow_up: Back to Table of Contents](#table-of-contents)
