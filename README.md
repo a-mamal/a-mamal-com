@@ -88,6 +88,26 @@ I hope they help build confidence to tackle something bigger next!
 - 🌐 HTML, CSS, JavaScript
 - 🗄️ MariaDB
 
+---
+
+## Frontend Architecture
+
+This project uses Vite for frontend asset bundling.
+
+### Entry Point
+- JavaScript: `resources/js/app.js`
+
+### UI Layer
+- Alpine.js (reactivity system)
+
+### Custom Modules
+- theme-switcher (day/night mode + persistence)
+- sidebar (navigation behavior)
+
+### Legacy
+- `/public/js` has been fully removed after migration to Vite
+
+---
 
 ## Roadmap / Features To Come
 
