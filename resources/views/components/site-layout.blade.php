@@ -30,8 +30,7 @@
         
         {{-- JS --}}
         @vite('resources/js/app.js')
-        <script src="{{ asset('js/main.js') }}" defer></script>
-        
+                
         {{-- Matomo Tracking Code (production only)  --}}
         {{-- keep this immediately before the closing </head> tag --}}
         @include('partials.matomo')
