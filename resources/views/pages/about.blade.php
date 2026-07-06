@@ -7,6 +7,10 @@
     <section id="about-me" class="about-wrapper">
         <h2> About me </h2>
         @include('partials.about.bio')
+        <div>
+            <x-download-cv-button />
+            <p class="text-muted">Last updated: June 2026</p>
+        </div>
         @include('partials.about.education')
         @include('partials.about.experience')
         @include('partials.about.certifications')
