@@ -3,9 +3,11 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ResumeController;
 use Illuminate\Support\Facades\Route;
 
 // Public pages
+
 Route::get('/', function() {
     return view('pages.home');
 })->name('home');
@@ -14,7 +16,8 @@ Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
 
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 
-// Contact page routes
+Route::get('/resume', [ResumeController::class, 'download'])->name('resume.download');
+
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'sendContact'])->name('contact.send');
 
