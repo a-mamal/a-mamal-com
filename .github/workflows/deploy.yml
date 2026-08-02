@@ -37,8 +37,11 @@ jobs:
       - name: Build assets
         run: npm run build
 
-      # Deploy everything except public/ to parent folder
-      - name: Deploy Laravel backend files
+      # Deploy the Laravel application to the domain root.
+      # Hostinger serves websites from public_html, which should point to Laravel's public/ directory.
+      # The public_html symlink is configured separately to expose only publicly accessible files.
+      # Keeping the full Laravel structure outside the public directory improves security.
+      - name: Deploy Laravel application
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: ${{ secrets.HOSTINGER_HOST }}
@@ -46,23 +49,10 @@ jobs:
           password: ${{ secrets.HOSTINGER_PASS }}
           protocol: ftp
           port: 21
-          local-dir: ./            # whole repo
+          local-dir: ./
           exclude: |
-            public/**       
             node_modules/**
             .git/**
+            .github/**
             tests/**
-            vendor/**
-          server-dir: ../          # parent of public_html
-
-      # Deploy only public/ to public_html
-      - name: Deploy public folder
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
-        with:
-          server: ${{ secrets.HOSTINGER_HOST }}
-          username: ${{ secrets.HOSTINGER_USER }}
-          password: ${{ secrets.HOSTINGER_PASS }}
-          protocol: ftp
-          port: 21
-          local-dir: ./public/
-          server-dir: ./
+          server-dir: domains/a-mamal.com/
