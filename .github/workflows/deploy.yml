@@ -12,34 +12,23 @@ jobs:
 
     steps:
       # Pull code from GitHub
-      - uses: actions/checkout@v3
-
-      # Set up PHP 8.4 (for Laravel)
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: 8.4
-          extensions: mbstring, bcmath, curl, xml
-
-      # Install Composer dependencies
-      - name: Install Composer dependencies
-        run: composer install --no-dev --optimize-autoloader
+      - uses: actions/checkout@v7
 
       # Set up Node and build Vite assets
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version: 20
 
       - name: Install NPM packages
-        run: npm install
+        run: npm ci
 
       - name: Build assets
         run: npm run build
 
       # Deploy the Laravel application to the domain root.
       - name: Deploy Laravel application
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.HOSTINGER_HOST }}
           username: ${{ secrets.HOSTINGER_USER }}
@@ -48,12 +37,27 @@ jobs:
           port: 21
           local-dir: ./
           exclude: |
+            vendor/**
             node_modules/**
             .git/**
             .github/**
             tests/**
           server-dir: ../
 
+      # Install Composer dependencies on Hostinger
+      - name: Install Composer dependencies on server
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.HOSTINGER_SSH_HOST }}
+          username: ${{ secrets.HOSTINGER_SSH_USER }}
+          password: ${{ secrets.HOSTINGER_SSH_PASSWORD }}
+          port: ${{ secrets.HOSTINGER_SSH_PORT }}
+          script: |
+            set -e
+            cd ~/domains/a-mamal.com
+            composer2 install --no-dev --optimize-autoloader
+            php artisan optimize:clear
+            php artisan optimize
 
       # Configure public_html symlink
       # Hostinger uses public_html as the document root.
