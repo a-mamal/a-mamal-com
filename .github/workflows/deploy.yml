@@ -12,7 +12,7 @@ jobs:
 
     steps:
       # Pull code from GitHub
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7
 
       # Set up PHP 8.4 (for Laravel)
       - name: Setup PHP
@@ -27,7 +27,7 @@ jobs:
 
       # Set up Node and build Vite assets
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version: 20
 
@@ -39,7 +39,7 @@ jobs:
 
       # Deploy the Laravel application to the domain root.
       - name: Deploy Laravel application
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.HOSTINGER_HOST }}
           username: ${{ secrets.HOSTINGER_USER }}
