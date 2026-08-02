@@ -37,8 +37,8 @@ jobs:
       - name: Build assets
         run: npm run build
 
-      # Deploy everything except public/ to parent folder
-      - name: Deploy Laravel backend files
+      # Deploy the Laravel application to the domain root.
+      - name: Deploy Laravel application
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: ${{ secrets.HOSTINGER_HOST }}
@@ -46,23 +46,27 @@ jobs:
           password: ${{ secrets.HOSTINGER_PASS }}
           protocol: ftp
           port: 21
-          local-dir: ./            # whole repo
+          local-dir: ./
           exclude: |
-            public/**       
             node_modules/**
             .git/**
+            .github/**
             tests/**
-            vendor/**
-          server-dir: ../          # parent of public_html
+          server-dir: domains/a-mamal.com/
 
-      # Deploy only public/ to public_html
-      - name: Deploy public folder
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+
+      # Configure public_html symlink
+      # Hostinger uses public_html as the document root.
+      # This exposes only Laravel's public directory while keeping application files outside the web root.
+      - name: Configure public_html symlink
+        uses: appleboy/ssh-action@v1
         with:
-          server: ${{ secrets.HOSTINGER_HOST }}
-          username: ${{ secrets.HOSTINGER_USER }}
-          password: ${{ secrets.HOSTINGER_PASS }}
-          protocol: ftp
-          port: 21
-          local-dir: ./public/
-          server-dir: ./
+          host: ${{ secrets.HOSTINGER_SSH_HOST }}
+          username: ${{ secrets.HOSTINGER_SSH_USER }}
+          password: ${{ secrets.HOSTINGER_SSH_PASSWORD }}
+          port: ${{ secrets.HOSTINGER_SSH_PORT }}
+          script: |
+            set -e
+            cd ~/domains/a-mamal.com
+            rm -rf ./public_html
+            ln -s ./public public_html

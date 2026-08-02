@@ -596,9 +596,11 @@ When your feature or fix is ready:
 
 ## Deployment
 
-- Live at: https://a-mamal.dev/
+- Live at: https://a-mamal.com/
 - Hosting: Hostinger.
-- Automation: Deployment handled via FTP Deploy Action
+- Automation: Deployment handled via GitHub Actions.
+   - Laravel application files are deployed using FTP Deploy Action.
+   - Hostinger's `public_html` directory is configured via SSH as a symlink to Laravel's `public/` directory.
 - Database: Credentials managed via .env and .env.production
 
 ---
@@ -609,6 +611,7 @@ When your feature or fix is ready:
 - [GitHub Actions](https://github.com/features/actions)
 - [shivammathur/setup-php](https://github.com/shivammathur/setup-php) (PHP 8.4)
 - [FTP-Deploy-Action](https://github.com/SamKirkland/FTP-Deploy-Action)
+- [appleboy/ssh-action](https://github.com/appleboy/ssh-action)
 
 ### 🛠️ Development  
 - [Laravel Herd](https://herd.laravel.com/) (local PHP + MariaDB)
