@@ -600,6 +600,9 @@ When your feature or fix is ready:
 - Hosting: Hostinger.
 - Automation: Deployment handled via GitHub Actions.
    - Laravel application files are deployed using FTP Deploy Action.
+   - The `vendor` directory is excluded from FTP deployment.
+   - Composer dependencies are installed directly on the Hostinger server using Composer (`composer2`).
+   - Laravel caches are optimized after deployment.
    - Hostinger's `public_html` directory is configured via SSH as a symlink to Laravel's `public/` directory.
 - Database: Credentials managed via .env and .env.production
 
@@ -609,7 +612,6 @@ When your feature or fix is ready:
 
 ### 🚀 Deployment
 - [GitHub Actions](https://github.com/features/actions)
-- [shivammathur/setup-php](https://github.com/shivammathur/setup-php) (PHP 8.4)
 - [FTP-Deploy-Action](https://github.com/SamKirkland/FTP-Deploy-Action)
 - [appleboy/ssh-action](https://github.com/appleboy/ssh-action)
 
