@@ -1,3 +1,740 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    /* -------------------- Spacing Scale -------------------- */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    --space-xxl: 4rem;
+
+    /* -------------------- Typography Scale -------------------- */
+   
+    --font-size-xs: 0.75rem;    
+    --font-size-sm: 0.875rem;   
+    --font-size-md: 1rem;       /* body text */
+    --font-size-lg: 1.25rem;    /* subheadings, card titles */
+    --font-size-xl: 1.5rem;     /* section headings, h2 */
+    --font-size-xxl: 2rem;      /* main headings, h1 */
+
+    --line-height-xs: 1rem;
+    --line-height-sm: 1.25rem;
+    --line-height-md: 1.5rem;
+    --line-height-lg: 1.75rem;
+    --line-height-xl: 2rem;
+    --line-height-xxl: 2.5rem;
+    
+/* ---------------------- Colours ----------------------- */
+
+/* This vibrant palette was originally designed for my thesis project
+   but never used there. Finally getting to see it in action here! */
+
+/* Names according to Coolors.co: */
+
+    --color-fire-engine-red: rgb(198, 40, 40);
+
+    --color-folly:           rgb(255, 71, 94);
+    --color-folly-90:        rgba(255, 71, 94, 0.9);
+
+    --color-selective-yellow:rgb(244, 180, 0);
+    --color-yellow-green:    rgb(138, 201, 38);
+    --color-steel-blue:      rgb(25, 130, 196);
+
+    --color-white:           rgb(255, 255, 255);
+    --color-white-10:        rgba(255, 255, 255, 0.1);
+
+    --color-seasalt:         rgb(250, 250, 250);
+
+    --color-light-cyan:      rgb(224, 247, 250);
+    --color-light-cyan-70:   rgba(224, 247, 250, 0.7);
+
+    --color-silver:          rgb(189, 189, 189);
+    --color-silver-30:       rgba(189, 189, 189, 0.3);
+
+    --color-onyx:            rgb(60, 60, 60);
+    --color-onyx-70:         rgba(60, 60, 60, 0.7);
+
+    --color-smokey-black:    rgb(16, 12, 8);
+
+
+
+    /* Color roles */
+    --color-primary:        var(--color-steel-blue); 
+
+    --color-secondary:      var(--color-folly);
+    --color-secondary-90:   var(--color-folly-90);
+
+    --color-accent:         var(--color-selective-yellow);
+    --color-background:     var(--color-seasalt);
+    --color-surface:        var(--color-silver);
+    --color-surface-30:     var(--color-silver-30);
+
+    --color-text-primary:   var(--color-onyx);
+    --color-text-primary-70:var(--color-onyx-70);
+
+    --color-text-muted:     var(--color-silver);
+
+    --color-border-section: var(--color-silver-30);
+    --color-border-card:    var(--color-silver);
+    --color-border-input:   var(--color-silver);
+    --color-border-input-focus: var(--color-primary);
+
+    --color-error:          var(--color-fire-engine-red);
+    --color-success:        var(--color-yellow-green);
+    --color-warning:        var(--color-selective-yellow);
+    --color-info:           var(--color-steel-blue);
+
+
+    /* ------------------------ Shadows ----------------------- */
+
+    --shadow-sidebar: 2px 0 8px var(--color-onyx-70);
+
+    --shadow-section: 0 2px 8px var(--color-border-section);
+
+    --shadow-card-sm: 0 1px 4px var(--color-border-card);
+    --shadow-card-md: 0 4px 12px var(--color-border-card);
+    --shadow-card-lg: 0 8px 24px var(--color-border-card);
+
+    --shadow-input: 0 0 0 2px var(--color-border-input-focus);
+    
+    
+    /* ------------------------ Text shadows ----------------------- */
+    --text-shadow-md-sb: 0 2px 4px var(--color-smokey-black);
+    --text-shadow-md-wh: 0 2px 4px var(--color-white);
+
+
+    /* -------------------- Button default vars -------------------- */
+    --button-bg: var(--color-primary);
+    --button-hover: var(--color-secondary);
+
+    /* -------------------- Header default vars -------------------- */
+    --main-header-gradient: linear-gradient(180deg, var(--color-primary),var(--color-secondary) 95%);
+    --page-header-gradient: linear-gradient(135deg, var(--color-primary),var(--color-secondary));
+
+}
+
+/* ---------------------- Themes ----------------------- */
+
+/* Day theme */
+[data-theme="day"] {
+    --main-header-gradient: linear-gradient(
+        180deg, 
+        var(--color-primary), 
+        var(--color-secondary) 95%
+    );
+    --page-header-gradient: linear-gradient(
+        135deg, 
+        var(--color-primary), 
+        var(--color-secondary)
+    );
+    --button-bg: var(--color-primary);
+    --button-hover: var(--color-secondary);
+}
+
+/* Night theme */
+[data-theme="night"] {
+    --main-header-gradient: linear-gradient(
+        180deg, 
+        var(--color-smokey-black) 0%, 
+        var(--color-onyx) 40%, 
+        var(--color-onyx-70) 100%
+    );
+    --page-header-gradient: linear-gradient(
+        135deg,
+        var(--color-onyx), 
+        var(--color-folly), 
+        var(--color-selective-yellow));
+    --button-bg: var(--color-folly);
+    --button-hover: var(--color-fire-engine-red);
+}
+
+/* -------------------- Reset & Base -------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+}
+
+/* ------------------ Main Header (Sidebar) ------------------ */
+
+.main-header{
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 20%;
+    align-self: flex-start;
+    padding: var(--space-md);
+    background: var(--main-header-gradient);
+    box-shadow: var(--shadow-sidebar);
+    color: var(--color-white);
+    min-height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+/* Collapsed Sidebar */
+.main-header.collapsed {
+    flex: 0 0 4rem;
+    padding: var(--space-xs);
+}
+
+/* -------------------- Sidebar Toggle Button -------------------- */
+
+button.sidebar-toggle {
+    display: flex;
+    flex-direction: row;
+    padding: var(--space-xs);
+    border: none;
+    outline: none;
+    background: none;
+    align-items: center;  
+    gap: var(--space-xs);
+    cursor: pointer;
+    color: var(--color-white);
+    width: 100%;
+}
+
+/* Hide text when sidebar is collapsed */
+.main-header.collapsed button.sidebar-toggle .site-nav-label {
+    display: none;
+}
+
+/* Sidebar toggle SVG */
+.sidebar-toggle svg {
+    width: 3rem;
+    height: 3rem;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
+
+/* Sidebar toggle SVG paths */
+.sidebar-toggle svg path {
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
+
+/* ------------------ Theme Toggle Button ------------- */
+
+#theme-toggle {
+    display: flex;
+    margin: var(--space-sm) 0;
+    padding: var(--space-xs);
+    width: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-white-10);
+    border-radius: 12px;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    transition: all 0.25s ease;
+}
+
+#theme-toggle:hover {
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+    box-shadow: var(--shadow-card-sm);
+    transform: scale(1.05);
+}
+
+/* -------------------- Navigation -------------------- */
+
+.site-nav{
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--space-sm);
+}
+
+.site-nav a {
+    display: flex;
+    padding: var(--space-xs);
+    align-items: center;
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    color: var(--color-white);
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+    gap: 0.75rem;
+}
+
+/* Divider */
+.site-nav a + a {
+    border-top: 1px solid var(--color-white-10);
+}
+
+/* Hover Effect */
+.site-nav a:hover {
+    color: var(--color-secondary);
+    transform: translateX(2px);
+}
+
+/* SVG */
+.site-nav svg {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+}
+
+/* Center icons when sidebar collapsed */
+.main-header.collapsed .site-nav a {    
+    justify-content: center;
+    padding: var(--space-xs 0);
+}
+
+/* Hide text when sidebar collapsed */
+.main-header.collapsed .site-nav a .nav-label {
+    display: none;
+}
+
+/* ---------------------- Layout ----------------------- */
+
+.right-wrapper{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: var(--space-xl);
+}
+
+footer{
+    flex: 1;
+    flex-direction: column;
+    padding-left: var(--space-md);
+}
+
+/* ---------------- Section & Headers ------------------- */
+
+section {
+    margin: var(--space-md) 0;
+}
+
+section h2 {
+    margin-bottom: var(--space-sm);
+    font-size: var(--font-size-xl);
+    color: var(--color-primary);
+}
+
+/* Page header */
+
+.page-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: var(--shadow-card-md);
+    background: var(--page-header-gradient);
+    padding: var(--space-xxl) var(--space-md);
+    margin-bottom: var(--space-xl);
+    gap: var(--space-sm);
+    color: var(--color-white);
+}
+
+.page-header h1 {
+    font-size: var(--font-size-xxl);
+    margin-bottom: var(--space-sm);
+}
+
+.page-header p {
+    color: var(--color-white);
+    font-size: var(--font-size-md);
+}
+
+/* -------------------- Cards -------------------- */
+.card-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+}
+
+.card {
+    padding: var(--space-md);
+    border: 1px solid var(--color-border-card);
+    border-radius: 8px;
+    background-color: var(--color-surface-30);
+    box-shadow: var(--shadow-card-sm);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-card-md);
+    border-color: var(--color-border-card);
+}
+
+.card-title {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-sm);
+    color: var(--color-primary);
+}
+
+.card-text {
+    color: var(--color-text-primary-70);
+    line-height: var(--line-height-md);
+    margin-bottom: var(--space-sm);
+}
+
+.card-meta {
+    font-size: var(--font-size-sm);
+    color: var(--color-secondary);
+    margin-bottom: var(--space-xs);
+    font-weight: 500;
+}
+
+.card-list {
+    margin: var(--space-sm) 0;
+    padding-left: var(--space-md);
+}
+
+.card-list li {
+    color: var(--color-text-primary-70);
+    line-height: var(--line-height-md);
+    margin-bottom: var(--space-xs);
+    list-style-type: disc;
+}
+
+.card-actions {
+    display: flex;
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
+}
+
+/*-------------------- Buttons ---------------------*/
+
+.button {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-sm);
+    background-color: var(--button-bg);
+    color: var(--color-white);
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: var(--font-size-sm);
+    transition: 
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background-color 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-card-sm);
+    background-color: var(--button-hover);
+}
+
+.button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.button-fire {
+    display: inline-block;
+    position: relative;
+    padding: var(--space-xs) var(--space-md);
+    background: linear-gradient(
+        135deg,
+        var(--color-folly), 
+        var(--color-selective-yellow));
+    color: var(--color-smokey-black);
+    border-radius: 4px;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: transform 0.15s ease,
+                filter 0.15s ease,
+                box-shadow 0.15s ease;
+    cursor: pointer;
+}
+
+.button-fire:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-card-sm);
+    filter: brightness(1.10);
+}
+
+.button-fire:active {
+    transform: translateY(0);
+    box-shadow: none;
+    filter: brightness(0.95);
+}
+
+/* --------------------- Home Page ----------------------- */
+
+.home-intro {
+    margin-bottom: var(--space-xxl);
+    padding: var(--space-lg);
+    border-radius: 8px;
+    background-color: var(--color-surface-30);
+    box-shadow: var(--shadow-card-sm);
+    color: var(--color-text-primary-70);
+}
+
+.home-intro p {
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-md);
+    margin-bottom: var(--space-md);
+}
+
+
+/* -------------------- Projects Page -------------------- */
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .card-grid {
+        gap: var(--space-lg);
+    }
+    
+    .card {
+        padding: var(--space-lg);
+    }
+}
+
+/* --------------------- About Page --------------------- */
+
+.about-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.about-section {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: var(--space-md);
+    border-radius: 8px;
+    border: 1px solid var(--color-border-section);
+    background-color: var(--color-surface-30);
+    box-shadow: var(--shadow-card-sm);
+    gap: var(--space-sm);
+    transition: 
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.about-section:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-md);
+    border-color: var(--color-border-card);
+}
+
+
+.about-section h3 {
+    font-size: var(--font-size-lg);
+    color: var(--color-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.about-section p {
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-lg);
+    color: var(--color-text-primary);
+}
+
+.about-section p.highlight {
+    font-style: italic;
+    color: var(--color-text-primary);
+    border-left: 3px solid var(--color-secondary);
+    padding-left: var(--space-sm);
+}
+
+.about-section p.question {
+    font-style: italic;
+    color: var(--color-text-primary);
+}
+
+.about-section p.card-meta a,
+.about-section p.card-meta a:visited {
+    text-decoration: none;
+}
+
+.about-section p.card-meta a:hover {
+    text-decoration: underline;
+}
+
+.about-section ul {
+    display: flex;
+    flex-direction: column;
+    padding-left: var(--space-sm);
+    list-style:circle;
+    gap: var(--space-xs);
+}
+
+.about-section ul li {
+    color: var(--color-text-primary-70);
+}
+
+/* -------------------- Contact Page -------------------- */
+
+.contact-section {
+    padding: var(--space-md);
+    border-radius: 8px;
+    border: 1px solid var(--color-border-section);
+    background-color: var(--color-secondary-90);
+}
+
+.contact-section h2 {
+    color: var(--color-white);
+    text-shadow: var(--text-shadow-md-sb) ;
+}
+
+.contact-section p {
+    color: var(--color-white);
+    margin-bottom: var(--space-sm);
+}
+
+.contact-section ul li {
+    color: var(--color-white);
+    list-style: none;
+}
+
+.contact-section a {
+    color: var(--color-smokey-black);
+    text-shadow: var(--text-shadow-md-wh);
+    text-decoration: none;
+}
+
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-section label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    color: var(--color-white);
+}
+
+.contact-section input,
+.contact-section textarea {
+    margin-bottom: var(--space-md);
+    padding: var(--space-sm);
+    border: 1px solid var(--color-border-input);
+    border-radius: 6px;
+    font-size: var(--font-size-md);
+    width: 100%;
+    background-color: var(--color-white);
+    color: var(--color-text-primary);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-section input:focus,
+.contact-section textarea:focus {
+    border-color: var(--color-border-input-focus);
+    box-shadow: var(--shadow-input);
+}
+
+.contact-section textarea {
+    resize: vertical;
+    min-height: 10rem;
+}
+
+.contact-section .button-fire {
+    border: 1px solid;
+    border-color: var(--color-white);
+}
+
+.contact-success {
+    color: var(--color-success);
+    margin-top: var(--space-sm);
+}
+
+.contact-error {
+    color: var(--color-error);
+    margin-top: var(--space-sm);
+}
+
+/* -------------------- Profile Links -------------------- */
+
+.profile-links-section {
+    margin-top: var(--space-md);
+}
+
+.profile-links-section h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-sm);
+    color: var(--color-white);
+}
+
+.profile-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+}
+
+.profile-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 4px;
+
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    text-decoration: none;
+
+    background-color: var(--button-bg);
+    color: var(--color-white);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background-color 0.2s ease;
+}
+
+.profile-link:hover {
+    transform: translateY(-1px);
+    background-color: var(--button-hover);
+    box-shadow: var(--shadow-card-sm);
+}
+
+.profile-link:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+.profile-link-icon {
+    display: inline-flex;
+    align-items: center;
+}
