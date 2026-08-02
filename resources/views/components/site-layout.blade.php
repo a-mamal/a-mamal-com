@@ -26,7 +26,6 @@
 
         {{-- CSS --}}
         @vite('resources/css/app.css')
-        <link rel="stylesheet" href="{{ asset('css/main.css') }}">
         
         {{-- JS --}}
         @vite('resources/js/app.js')
