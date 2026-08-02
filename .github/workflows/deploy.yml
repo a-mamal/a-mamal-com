@@ -38,9 +38,6 @@ jobs:
         run: npm run build
 
       # Deploy the Laravel application to the domain root.
-      # Hostinger serves websites from public_html, which should point to Laravel's public/ directory.
-      # The public_html symlink is configured separately to expose only publicly accessible files.
-      # Keeping the full Laravel structure outside the public directory improves security.
       - name: Deploy Laravel application
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
@@ -56,3 +53,20 @@ jobs:
             .github/**
             tests/**
           server-dir: domains/a-mamal.com/
+
+
+      # Configure public_html symlink
+      # Hostinger uses public_html as the document root.
+      # This exposes only Laravel's public directory while keeping application files outside the web root.
+      - name: Configure public_html symlink
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.HOSTINGER_SSH_HOST }}
+          username: ${{ secrets.HOSTINGER_SSH_USER }}
+          password: ${{ secrets.HOSTINGER_SSH_PASSWORD }}
+          port: ${{ secrets.HOSTINGER_SSH_PORT }}
+          script: |
+            set -e
+            cd ~/domains/a-mamal.com
+            rm -rf ./public_html
+            ln -s ./public public_html
