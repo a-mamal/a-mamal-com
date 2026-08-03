@@ -13,5 +13,9 @@
         <a  href="{{ route('projects') }}" 
             class="button-fire">View My Projects →</a>
     </section>
-    @include('partials.home.projects')
+
+    @include('partials.home.projects', [
+        'projects' => $featuredProjects
+    ])
+    
 </x-site-layout>
