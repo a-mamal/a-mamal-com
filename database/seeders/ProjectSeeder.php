@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Project;
 use App\Models\Profile;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class ProjectSeeder extends Seeder
 {
@@ -57,7 +58,7 @@ class ProjectSeeder extends Seeder
                             'profile_id' => $profile->id,
                             'title' => $data['title'],
                         ],
-                        [
+                        [   'slug'        => $data['slug'] ?? Str::slug($data['title']),
                             'type'        => $data['type'] ?? null,
                             'description' => $data['description'] ?? null,
                             'highlights'  => $data['highlights'] ?? null,
