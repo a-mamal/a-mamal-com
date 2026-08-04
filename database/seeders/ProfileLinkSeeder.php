@@ -48,14 +48,25 @@ class ProfileLinkSeeder extends Seeder
 
         // Seed remaining profiles with random links (local only)
         if (app()->environment('local')) {
+            $platforms = [
+                'codepen',
+                'freecodecamp',
+                'github',
+                'hackthebox',
+                'leetcode',
+                'linkedin',
+                'website',
+                'other',
+            ];
             foreach ($profiles->skip(1) as $profile) {
                 $linksCount = rand(1, 3);
 
-                ProfileLink::factory()
-                    ->count($linksCount)
-                    ->create([
+                foreach (fake()->randomElements($platforms, $linksCount) as $platform) {
+                    ProfileLink::factory()->create([
                         'profile_id' => $profile->id,
+                        'platform' => $platform,
                     ]);
+                }
             }
         }
     }
