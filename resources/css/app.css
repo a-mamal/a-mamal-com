@@ -305,7 +305,7 @@ button.sidebar-toggle {
 /* Center icons when sidebar collapsed */
 .main-header.collapsed .site-nav a {    
     justify-content: center;
-    padding: var(--space-xs 0);
+    padding: var(--space-xs) 0;
 }
 
 /* Hide text when sidebar collapsed */
