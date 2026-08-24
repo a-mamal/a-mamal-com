@@ -1,7 +1,10 @@
 <header class="main-header">
-    <div class="logo">
-        <img>
-    </div>
+    <a href="{{ route('home') }}" class="logo" aria-label="Go to homepage">
+        <img
+            src="{{ asset('images/branding/logo-v1.svg') }}"
+            alt="a-mamal"
+        >
+    </a>
 
     <!-- Sidebar toggle button -->
     <button class="sidebar-toggle" 
