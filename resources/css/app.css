@@ -574,6 +574,10 @@ section {
     margin-bottom: var(--space-md);
 }
 
+.projects-section .button-fire {
+    margin-top: var(--space-md);
+}
+
 
 /* -------------------- Projects Page -------------------- */
 
