@@ -10,7 +10,7 @@
         <div class="card-grid">
             @forelse($projects as $project)
             
-                <article class=" card project-card">
+                <article class="card project-card">
                     {{-- Title  --}}
                     <h3 class="card-title">{{ $project->title }}</h3>
 
@@ -37,7 +37,7 @@
                     <div class="card-actions">
                         @if($project->github_url)
                             <a  href="{{ $project->github_url }}"
-                                class="button-fire" 
+                                class="button" 
                                 target="_blank">
                                 GitHub
                             </a>
@@ -45,9 +45,9 @@
 
                         @if($project->project_url)
                             <a  href="{{ $project->project_url }}" 
-                                class="button-fire"
+                                class="button"
                                 target="_blank">
-                                Live Demo
+                                Visit
                             </a>
                         @endif
 
