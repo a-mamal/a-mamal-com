@@ -171,6 +171,31 @@ body {
     background-color: var(--color-background);
 }
 
+/* -------------------- Typography -------------------- */
+
+h1 {
+    font-size: var(--font-size-xxl);
+    line-height: var(--line-height-xxl);
+}
+
+h2 {
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-xl);
+    color: var(--color-primary);
+}
+
+h3 {
+    font-size: var(--font-size-lg);
+    color: var(--color-primary);
+    margin-bottom: var(--space-xs);
+}
+
+h4 {
+    font-size: var(--font-size-md);
+    color: var(--color-primary);
+    margin-bottom: var(--space-xs);
+}
+
 /* ------------------ Main Header (Sidebar) ------------------ */
 
 .main-header{
@@ -375,12 +400,6 @@ section {
     margin: var(--space-md) 0;
 }
 
-section h2 {
-    margin-bottom: var(--space-sm);
-    font-size: var(--font-size-xl);
-    color: var(--color-primary);
-}
-
 /* Page header */
 
 .page-header {
@@ -396,11 +415,6 @@ section h2 {
     margin-bottom: var(--space-xl);
     gap: var(--space-sm);
     color: var(--color-white);
-}
-
-.page-header h1 {
-    font-size: var(--font-size-xxl);
-    margin-bottom: var(--space-sm);
 }
 
 .page-header p {
@@ -591,13 +605,6 @@ section h2 {
     border-color: var(--color-border-card);
 }
 
-
-.about-section h3 {
-    font-size: var(--font-size-lg);
-    color: var(--color-primary);
-    margin-bottom: var(--space-xs);
-}
-
 .about-section p {
     font-size: var(--font-size-md);
     line-height: var(--line-height-lg);
@@ -723,12 +730,6 @@ section h2 {
 
 .profile-links-section {
     margin-top: var(--space-md);
-}
-
-.profile-links-section h3 {
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--space-sm);
-    color: var(--color-white);
 }
 
 .profile-links {
