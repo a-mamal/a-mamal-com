@@ -445,6 +445,8 @@ section {
 }
 
 .card {
+    display: flex;
+    flex-direction: column;
     padding: var(--space-md);
     border: 1px solid var(--color-border-card);
     border-radius: 8px;
@@ -491,8 +493,9 @@ section {
 
 .card-actions {
     display: flex;
+    align-self: flex-start;
     gap: var(--space-sm);
-    margin-top: var(--space-sm);
+    margin-top: auto;
 }
 
 /*-------------------- Buttons ---------------------*/
