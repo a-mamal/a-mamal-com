@@ -171,6 +171,47 @@ body {
     background-color: var(--color-background);
 }
 
+/* -------------------- Typography -------------------- */
+
+h1 {
+    font-size: var(--font-size-xxl);
+    line-height: var(--line-height-xxl);
+}
+
+h2 {
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-xl);
+    color: var(--color-primary);
+}
+
+h3 {
+    font-size: var(--font-size-lg);
+    color: var(--color-primary);
+    margin-bottom: var(--space-xs);
+}
+
+h4 {
+    font-size: var(--font-size-md);
+    color: var(--color-primary);
+    margin-bottom: var(--space-xs);
+}
+
+p {
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-lg);
+    color: var(--color-text-primary);
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 0.10em;
+}
+
+a:hover {
+    color: var(--color-secondary);
+}
+
 /* ------------------ Main Header (Sidebar) ------------------ */
 
 .main-header{
@@ -375,12 +416,6 @@ section {
     margin: var(--space-md) 0;
 }
 
-section h2 {
-    margin-bottom: var(--space-sm);
-    font-size: var(--font-size-xl);
-    color: var(--color-primary);
-}
-
 /* Page header */
 
 .page-header {
@@ -398,14 +433,8 @@ section h2 {
     color: var(--color-white);
 }
 
-.page-header h1 {
-    font-size: var(--font-size-xxl);
-    margin-bottom: var(--space-sm);
-}
-
 .page-header p {
     color: var(--color-white);
-    font-size: var(--font-size-md);
 }
 
 /* -------------------- Cards -------------------- */
@@ -502,6 +531,7 @@ section h2 {
         var(--color-folly), 
         var(--color-selective-yellow));
     color: var(--color-smokey-black);
+    text-decoration: none;
     border-radius: 4px;
     font-size: var(--font-size-sm);
     font-weight: 500;
@@ -591,19 +621,6 @@ section h2 {
     border-color: var(--color-border-card);
 }
 
-
-.about-section h3 {
-    font-size: var(--font-size-lg);
-    color: var(--color-primary);
-    margin-bottom: var(--space-xs);
-}
-
-.about-section p {
-    font-size: var(--font-size-md);
-    line-height: var(--line-height-lg);
-    color: var(--color-text-primary);
-}
-
 .about-section p.highlight {
     font-style: italic;
     color: var(--color-text-primary);
@@ -614,15 +631,6 @@ section h2 {
 .about-section p.question {
     font-style: italic;
     color: var(--color-text-primary);
-}
-
-.about-section p.card-meta a,
-.about-section p.card-meta a:visited {
-    text-decoration: none;
-}
-
-.about-section p.card-meta a:hover {
-    text-decoration: underline;
 }
 
 .about-section ul {
@@ -723,12 +731,6 @@ section h2 {
 
 .profile-links-section {
     margin-top: var(--space-md);
-}
-
-.profile-links-section h3 {
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--space-sm);
-    color: var(--color-white);
 }
 
 .profile-links {
