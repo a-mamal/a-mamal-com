@@ -196,6 +196,12 @@ h4 {
     margin-bottom: var(--space-xs);
 }
 
+p {
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-lg);
+    color: var(--color-text-primary);
+}
+
 /* ------------------ Main Header (Sidebar) ------------------ */
 
 .main-header{
@@ -419,7 +425,6 @@ section {
 
 .page-header p {
     color: var(--color-white);
-    font-size: var(--font-size-md);
 }
 
 /* -------------------- Cards -------------------- */
@@ -603,12 +608,6 @@ section {
     transform: translateY(-2px);
     box-shadow: var(--shadow-card-md);
     border-color: var(--color-border-card);
-}
-
-.about-section p {
-    font-size: var(--font-size-md);
-    line-height: var(--line-height-lg);
-    color: var(--color-text-primary);
 }
 
 .about-section p.highlight {
