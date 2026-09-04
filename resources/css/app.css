@@ -438,7 +438,7 @@ section {
 }
 
 /* -------------------- Cards -------------------- */
-.card-grid{
+.card-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-md);
@@ -496,6 +496,23 @@ section {
     align-self: flex-start;
     gap: var(--space-sm);
     margin-top: auto;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .card-grid {
+        gap: var(--space-lg);
+    }
+    
+    .card {
+        padding: var(--space-lg);
+    }
 }
 
 /*-------------------- Buttons ---------------------*/
@@ -581,22 +598,6 @@ section {
 
 /* -------------------- Projects Page -------------------- */
 
-/* Responsive adjustments */
-@media (min-width: 768px) {
-    .card-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 1024px) {
-    .card-grid {
-        gap: var(--space-lg);
-    }
-    
-    .card {
-        padding: var(--space-lg);
-    }
-}
 
 /* --------------------- About Page --------------------- */
 
