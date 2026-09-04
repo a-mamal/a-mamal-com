@@ -10,7 +10,7 @@ class HomeController extends Controller
     {
         $featuredProjects = Project::where('status', 'published')
             ->latest('created_at')
-            ->take(2)
+            ->take(3)
             ->get();
 
         return view('pages.home', compact('featuredProjects'));
