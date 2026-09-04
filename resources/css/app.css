@@ -595,6 +595,12 @@ section {
     margin-top: var(--space-md);
 }
 
+@media (min-width: 768px) {
+    .featured-projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 
 /* -------------------- Projects Page -------------------- */
 

@@ -1,7 +1,7 @@
 <section class="projects-section">
     <h2>Featured Projects</h2>
 
-    <div class="card-grid">
+    <div class="card-grid featured-projects-grid">
         @forelse ($featuredProjects as $project)
             <article class="card project-preview-card">
                 <h3 class="card-title">{{ $project->title }}</h3>
