@@ -10,8 +10,6 @@
             From personal projects to experiments, I enjoy exploring new technologies, solving problems, and turning ideas into practical applications.
             Take a look around and discover what I have been building.
         </p>
-        <a  href="{{ route('projects') }}" 
-            class="button-fire">View My Projects →</a>
     </section>
 
     @include('partials.home.projects', [
