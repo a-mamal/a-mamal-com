@@ -559,12 +559,16 @@ section {
 
 /* --------------------- Home Page ----------------------- */
 
+
+/* -------------------- Featured projects on Home page &  Projects Page -------------------- */
+
 .projects-section .button-fire {
     margin-top: var(--space-md);
 }
 
-
-/* -------------------- Projects Page -------------------- */
+.projects-section h2 {
+    margin-bottom: var(--space-md);
+}
 
 /* Responsive adjustments */
 @media (min-width: 768px) {
