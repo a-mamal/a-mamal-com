@@ -559,27 +559,16 @@ section {
 
 /* --------------------- Home Page ----------------------- */
 
-.home-intro {
-    margin-bottom: var(--space-xxl);
-    padding: var(--space-lg);
-    border-radius: 8px;
-    background-color: var(--color-surface-30);
-    box-shadow: var(--shadow-card-sm);
-    color: var(--color-text-primary-70);
-}
 
-.home-intro p {
-    font-size: var(--font-size-md);
-    line-height: var(--line-height-md);
-    margin-bottom: var(--space-md);
-}
+/* -------------------- Featured projects on Home page &  Projects Page -------------------- */
 
 .projects-section .button-fire {
     margin-top: var(--space-md);
 }
 
-
-/* -------------------- Projects Page -------------------- */
+.projects-section h2 {
+    margin-bottom: var(--space-md);
+}
 
 /* Responsive adjustments */
 @media (min-width: 768px) {
