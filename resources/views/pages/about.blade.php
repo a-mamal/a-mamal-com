@@ -9,7 +9,7 @@
         @include('partials.about.bio')
         <div>
             <x-download-cv-button />
-            <p class="text-muted">Last updated: June 2026</p>
+            <p class="text-muted">Last updated: September 2026</p>
         </div>
         @include('partials.about.education')
         @include('partials.about.experience')
