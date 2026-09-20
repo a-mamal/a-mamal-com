@@ -2,3 +2,5 @@
 !.gitignore
 !documents/
 !documents/**
+
+documents/cv/production/
