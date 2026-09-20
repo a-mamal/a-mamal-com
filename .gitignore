@@ -25,3 +25,4 @@ Homestead.yaml
 Thumbs.db
 
 /database/seeders/production
+/storage/app/public/documents/cv/production
