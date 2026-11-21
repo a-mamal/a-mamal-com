@@ -22,6 +22,7 @@
     - [certificates](#table-certificates)
     - [spoken_languages](#table-spoken_languages)
     - [experiences](#table-experiences)
+    - [Seeders](#seeders)
 - [Setup](#setup)
 - [Contributing](#contributing)
 - [Deployment](#deployment)
@@ -147,7 +148,7 @@ Tables in this project:
 - [`certificates`](#table-certificates)
 - [`spoken_languages`](#table-spoken_languages)
 
-Detailed descriptions follow below.
+Detailed descriptions follow below. See [Seeders](#seeders) for database setup and sample data.
 
 ### Table: `users`
 
@@ -165,11 +166,10 @@ Detailed descriptions follow below.
 **Relationships:**  
 - Users can have many profiles
 
-**Seeder / Factory:**  
-- `UserFactory` exists for generating test users.
-- `UserSeeder` exists and is environment-aware:
-   - Local: seeds main admin user (from `.env`) + 5 random demo users  
-   - Production: seeds only the main admin user (from `.env`)
+**Seeder / Factory:**
+
+- [UserSeeder](database/seeders/UserSeeder.php)
+- [UserFactory](database/factories/UserFactory.php)
 
 [↑ Back to Table of Contents](#table-of-contents)
 
@@ -193,9 +193,10 @@ Detailed descriptions follow below.
   - profile links
   - projects
 
-**Seeder / Factory:**  
-- `ProfileFactory` exists  
-- `ProfileSeeder` exists
+**Seeder / Factory:**
+
+- [ProfileSeeder](database/seeders/ProfileSeeder.php)
+- [ProfileFactory](database/factories/ProfileFactory.php)
 
 [↑ Back to Table of Contents](#table-of-contents)
 
@@ -216,11 +217,10 @@ Detailed descriptions follow below.
 **Relationships:**  
 - A profile link belongs to one profile  
 
-**Seeder / Factory:**  
-- `ProfileLinkFactory` exists and generates realistic URLs based on the platform  
-- `ProfileLinkSeeder` exists and seeds 1–3 links per profile in local environments  
+**Seeder / Factory:**
 
-> Note: The seeder only runs in local environments to avoid polluting production data.  
+- [ProfileLinkSeeder](database/seeders/ProfileLinkSeeder.php)
+- [ProfileLinkFactory](database/factories/ProfileLinkFactory.php)
 
 [↑ Back to Table of Contents](#table-of-contents)
 
@@ -249,9 +249,10 @@ Detailed descriptions follow below.
 **Relationships:**  
 - A project belongs to one profile  
 
-**Seeder / Factory:**  
-- `ProjectFactory` exists but is currently empty.  
-- `ProjectSeeder` exists . It seeds multiple projects and ensures each project is linked to a profile (default profile used if none exists). Will be updated. 
+**Seeder / Factory:**
+
+- [ProjectSeeder](database/seeders/ProjectSeeder.php)
+- [ProjectFactory](database/factories/ProjectFactory.php)
 
 > Note: Each project may have highlights and URLs for demo or GitHub, which are useful for showcasing a portfolio. The `status` field allows for draft projects or published projects for display. Highlights are stored as JSON (longtext) for flexibility.
 
@@ -274,9 +275,10 @@ Detailed descriptions follow below.
 - An organizations can have many certificates.  
 - An organizations can have many degrees.  
 
-**Seeder / Factory:**  
-- `OrganizationsFactory` exists but is currently empty.  
-- `OrganizationsSeeder` exists and seeds data from `database/seeders/data/organizations.json`.
+**Seeder / Factory:**
+
+- [OrganizationSeeder](database/seeders/OrganizationSeeder.php)
+- [OrganizationFactory](database/factories/OrganizationFactory.php)
 
 **History/Decisions**
 This table was initially named `issuers` and was  used for `certificates` and `degrees`. While the name made sense initially, going forward and seeking for the need to represent employers for the `experiences` table it was not suitable anymore.
@@ -311,9 +313,10 @@ To simplify and future-proof the schema, the table was renamed to `organizations
 - A degree belongs to one profile  
 - A degree belongs to one organization  
 
-**Seeder / Factory:**  
-- `DegreeFactory` exists  
-- `DegreeSeeder` exists
+**Seeder / Factory:**
+
+- [DegreeSeeder](database/seeders/DegreeSeeder.php)
+- [DegreeFactory](database/factories/DegreeFactory.php)
 
 [↑ Back to Table of Contents](#table-of-contents)
 
@@ -339,10 +342,10 @@ To simplify and future-proof the schema, the table was renamed to `organizations
 - A certificate belongs to one organization
 - A certificate optionally belongs to one spoken language (links the certificate to a profile's spoken language)
 
-**Seeder / Factory:**  
-- `CertificateFactory` exists but needs to be updated (see [Issue #55](https://github.com/a-mamal/a-mamal-com/issues/55))
-- `CertificateSeeder` exists but needs to be updated (see [Issue #56](https://github.com/a-mamal/a-mamal-com/issues/56))
+**Seeder / Factory:**
 
+- [CertificateSeeder](database/seeders/CertificateSeeder.php)
+- [CertificateFactory](database/factories/CertificateFactory.php)
 
 [↑ Back to Table of Contents](#table-of-contents)
 
@@ -362,9 +365,10 @@ To simplify and future-proof the schema, the table was renamed to `organizations
 - A spoken language belongs to one profile  
 - A spoken language can have many certificates  
 
-**Seeder / Factory:**  
-- `SpokenLanguageFactory` exists  
-- `SpokenLanguageSeeder` exists but is currently empty
+**Seeder / Factory:**
+
+- [SpokenLanguageSeeder](database/seeders/SpokenLanguageSeeder.php)
+- [SpokenLanguageFactory](database/factories/SpokenLanguageFactory.php)
 
 [↑ Back to Table of Contents](#table-of-contents)
 
@@ -392,9 +396,9 @@ To simplify and future-proof the schema, the table was renamed to `organizations
 **Constraints:**  
 - `is_current = true` implies `end_date IS NULL` (enforced at DB level with a CHECK constraint)  
 
-**Seeder / Factory:**  
-- `ExperienceFactory` will generate realistic experiences for testing  
-- `ExperienceSeeder` will populate experiences for profiles
+**Seeder / Factory:**
+
+An experience seeder and factory are planned.
 
 **History / Decisions:**  
 This table was added to track user experiences such as jobs, internships, or volunteer positions.  
@@ -403,6 +407,39 @@ This table was added to track user experiences such as jobs, internships, or vol
 - You might argue that `is_current` could be redundant and could be derived from the dates but since people sometimes don’t remember exact dates, having a missing `end_date` doesn’t necessarily mean the experience is current.
 
 > **Note:** Part of the epic [feat(experiences): implement experiences linked to organizations #47](https://github.com/a-mamal/a-mamal-com/issues/47), with the actual migration in sub-issue [#49](https://github.com/a-mamal/a-mamal-com/issues/49).
+
+[↑ Back to Table of Contents](#table-of-contents)
+
+### Seeders
+
+[DatabaseSeeder](database/seeders/DatabaseSeeder.php) selects which seeders to run based on `APP_ENV`.
+
+- **Local (`APP_ENV=local`)** runs the seeders below in the listed order. It loads the bundled data and generates demo records. `UserSeeder` creates demo users, and each demo profile gets its own additional demo user through `ProfileFactory`.
+- **Production (`APP_ENV=production`)** delegates to [ProductionDatabaseSeeder](database/seeders/ProductionDatabaseSeeder.php). The shared seeders skip local demo generation. The profile, certificate, degree, and project seeders look for data under the gitignored `database/seeders/production/data/` directory. The production run also calls `ProductionSpokenLanguageSeeder`, whose source is outside the public checkout.
+- **Other environments** have no seeding branch in `DatabaseSeeder`.
+
+[UserSeeder](database/seeders/UserSeeder.php) creates or updates the main user in both environments, using `ADMIN_EMAIL` to match the account and `ADMIN_NAME` and `ADMIN_PASSWORD` to set its name and password. Set these values in `.env` using [`.env.example`](.env.example) as a reference. Local demo users are generated by [UserFactory](database/factories/UserFactory.php).
+
+| Seeder | Data it adds or updates | Related factory |
+| --- | --- | --- |
+| [UserSeeder](database/seeders/UserSeeder.php) | Main user and local demo users | [UserFactory](database/factories/UserFactory.php) |
+| [ProfileSeeder](database/seeders/ProfileSeeder.php) | Main profile from JSON when present, plus local demo profiles | [ProfileFactory](database/factories/ProfileFactory.php) |
+| [ProfileLinkSeeder](database/seeders/ProfileLinkSeeder.php) | Links from bundled JSON for the first profile in both environments, plus random links for other profiles in local runs | [ProfileLinkFactory](database/factories/ProfileLinkFactory.php) |
+| [OrganizationSeeder](database/seeders/OrganizationSeeder.php) | Organizations from bundled JSON | [OrganizationFactory](database/factories/OrganizationFactory.php) |
+| [CertificateSeeder](database/seeders/CertificateSeeder.php) | Certificates from JSON when present, plus local demo certificates | [CertificateFactory](database/factories/CertificateFactory.php) |
+| [DegreeSeeder](database/seeders/DegreeSeeder.php) | Degrees from JSON when present, plus local demo degrees | [DegreeFactory](database/factories/DegreeFactory.php) |
+| [SpokenLanguageSeeder](database/seeders/SpokenLanguageSeeder.php) | Default languages and local demo languages | [SpokenLanguageFactory](database/factories/SpokenLanguageFactory.php) |
+| [ProjectSeeder](database/seeders/ProjectSeeder.php) | Projects from JSON when present, plus local demo projects | [ProjectFactory](database/factories/ProjectFactory.php) |
+
+`OrganizationSeeder` uses JSON directly. `OrganizationFactory` has no default attributes. Supply explicit `name` and `type` values when creating an organization with it.
+
+For first-time setup, create an empty, dedicated local MariaDB database. Set `APP_ENV=local`, point the `DB_*` settings to that database, and set the admin variables in `.env`. `ProfileSeeder` uses the first user for the main profile, and `SpokenLanguageSeeder` assumes profile ID 1 exists for the default languages. Apply migrations and seed the database with the following command.
+
+```bash
+php artisan migrate --seed
+```
+
+> **Warning:** Repeat seeding can update existing records, including the admin password, and can fail partway through. For example, a random profile link can duplicate a platform already used by that profile, violating the unique constraint. `php artisan migrate:fresh` drops all tables on the selected connection. Use it only when you intend to reset a disposable database.
 
 [↑ Back to Table of Contents](#table-of-contents)
 
@@ -492,17 +529,9 @@ The database used is **MariaDB**.
    DB_DATABASE   = personal_website
    DB_USERNAME   = your_username
    DB_PASSWORD   = your_password
+   ```
 
-   # Admin credentials for seeding
-   ADMIN_EMAIL=admin@example.com
-   ADMIN_PASSWORD=secret123
-   ```
-6. **Run migrations and seed initial data:**
-   
-   ```bash
-   php artisan migrate:fresh --seed
-   ```
-   >⚠️ Warning: migrate:fresh deletes all tables/data. Local/dev only.
+6. **Run migrations and seed initial data** by following the [local setup instructions in Seeders](#seeders).
 
 7. **Start the development server:**
 
